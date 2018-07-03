@@ -1,13 +1,14 @@
 package com.rhea.common.base;
 
 import org.apache.ibatis.annotations.Param;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
 /**
  * 降级实现BaseService抽象类
  */
-public abstract class BaseServiceMock<Mapper, Record, Example> implements BaseService<Record, Example> {
+public abstract class BaseServiceMock<Mapper, Record> implements BaseService<Record> {
 
 	@Override
 	public int countByExample(Example example) {

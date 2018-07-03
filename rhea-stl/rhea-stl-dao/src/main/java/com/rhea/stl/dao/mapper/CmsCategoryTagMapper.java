@@ -1,30 +1,9 @@
 package com.rhea.stl.dao.mapper;
 
+import com.rhea.common.base.GenericMapper;
 import com.rhea.stl.dao.model.CmsCategoryTag;
-import com.rhea.stl.dao.model.CmsCategoryTagExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface CmsCategoryTagMapper {
-    long countByExample(CmsCategoryTagExample example);
-
-    int deleteByExample(CmsCategoryTagExample example);
-
-    int deleteByPrimaryKey(Integer categoryTagId);
-
-    int insert(CmsCategoryTag record);
-
-    int insertSelective(CmsCategoryTag record);
-
-    List<CmsCategoryTag> selectByExample(CmsCategoryTagExample example);
-
-    CmsCategoryTag selectByPrimaryKey(Integer categoryTagId);
-
-    int updateByExampleSelective(@Param("record") CmsCategoryTag record, @Param("example") CmsCategoryTagExample example);
-
-    int updateByExample(@Param("record") CmsCategoryTag record, @Param("example") CmsCategoryTagExample example);
-
-    int updateByPrimaryKeySelective(CmsCategoryTag record);
-
-    int updateByPrimaryKey(CmsCategoryTag record);
+@Mapper
+public interface CmsCategoryTagMapper extends GenericMapper<CmsCategoryTag> {
 }

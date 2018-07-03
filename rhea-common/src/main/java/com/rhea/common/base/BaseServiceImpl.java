@@ -3,22 +3,21 @@ package com.rhea.common.base;
 import com.github.pagehelper.PageHelper;
 import com.rhea.common.db.DataSourceEnum;
 import com.rhea.common.db.DynamicDataSource;
-import com.rhea.common.util.SpringContextUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
+import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 /**
  * 实现BaseService抽象类
  * Created by ZhangShuzheng on 2017/01/07.
  */
-public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseService<Record, Example> {
+public abstract class BaseServiceImpl<Record> implements BaseService<Record> {
 
-	public Mapper mapper;
+	public GenericMapper<Record> mapper;
 
 	@Override
 	public int countByExample(Example example) {
@@ -420,15 +419,14 @@ public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseSe
 
 	@Override
 	public void initMapper() {
-		this.mapper = SpringContextUtil.getBean(getMapperClass());
 	}
 
 	/**
 	 * 获取类泛型class
 	 * @return
 	 */
-	public Class<Mapper> getMapperClass() {
-		return (Class<Mapper>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+	public Class<?> getMapperClass() {
+		return null;
 	}
 
 }

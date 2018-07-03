@@ -2,12 +2,11 @@ package com.rhea.stl.api;
 
 import com.rhea.common.base.BaseService;
 import com.rhea.stl.dao.model.CmsCategoryTag;
-import com.rhea.stl.dao.model.CmsCategoryTagExample;
 
 /**
 * CmsCategoryTagService接口
 * Created by rhea on 2018/7/3.
 */
-public interface CmsCategoryTagService extends BaseService<CmsCategoryTag, CmsCategoryTagExample> {
+public interface CmsCategoryTagService extends BaseService<CmsCategoryTag> {
 
 }

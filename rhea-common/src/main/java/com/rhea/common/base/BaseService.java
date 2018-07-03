@@ -1,13 +1,14 @@
 package com.rhea.common.base;
 
 import org.apache.ibatis.annotations.Param;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
 /**
  * BaseService接口
  */
-public interface BaseService<Record, Example> {
+public interface BaseService<Record> {
 
     /**
      * 根据条件查询记录数量
