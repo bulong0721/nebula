@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.hyperion.generic.GenericMapper"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="forceAnnotation" value="true"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="targetProject" value="src/test/java"/>
+            <property name="targetPackage" value="com.rhea.order.dubbo"/>
+            <property name="templatePath" value="template/Dubbo.ftl"/>
+            <property name="dubboSuffix" value="Dubbo"/>
+            <property name="fileName" value="${tableClass.shortClassName}${dubboSuffix}.java"/>
+        </plugin>
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/zheng?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true"
+                        userId="root"
+                        password="root"/>
+
+        <!-- model生成 -->
+        <javaModelGenerator targetPackage="com.hyperion.model" targetProject="src/main/java"/>
+
+        <!-- MapperXML生成 -->
+        <sqlMapGenerator targetPackage="com.hyperion.mapper" targetProject="src/main/resources"/>
+
+        <!-- Mapper接口生成 -->
+        <javaClientGenerator targetPackage="com.hyperion.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <table tableName="cms_article" domainObjectName="Article"></table>
+        <table tableName="cms_article_category" domainObjectName="ArticleCategory"></table>
+        <table tableName="cms_article_tag" domainObjectName="ArticleTag"></table>
+    </context>
+</generatorConfiguration>

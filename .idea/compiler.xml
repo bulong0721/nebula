@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rhea-base-core" />
+        <module name="rhea-base-messaging" />
+        <module name="rhea-base-service" />
+        <module name="rhea-base-web" />
+        <module name="rhea-generator" />
+        <module name="rhea-order-api" />
+        <module name="rhea-order-service" />
+        <module name="rhea-order-skeleton" />
+        <module name="rhea-order-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="rhea" target="1.8" />
+      <module name="rhea-base" target="1.8" />
+      <module name="rhea-base-core" target="1.8" />
+      <module name="rhea-base-messaging" target="1.8" />
+      <module name="rhea-base-service" target="1.8" />
+      <module name="rhea-base-web" target="1.8" />
+      <module name="rhea-generator" target="1.8" />
+      <module name="rhea-order" target="1.8" />
+      <module name="rhea-order-api" target="1.8" />
+      <module name="rhea-order-service" target="1.8" />
+      <module name="rhea-order-skeleton" target="1.8" />
+      <module name="rhea-order-web" target="1.8" />
+      <module name="rhea-plugin" target="1.8" />
+      <module name="rhea-ui" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
