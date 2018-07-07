@@ -14,6 +14,19 @@
     <artifactId>rhea-order-service</artifactId>
     <version>0.7.0</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.rhea</groupId>
+            <artifactId>rhea-base-service</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rhea</groupId>
+            <artifactId>rhea-order-api</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -21,7 +34,7 @@
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.6</version>
                 <configuration>
-                    <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+                    <configurationFile>src/main/resources/generator/generatorConfig.xml</configurationFile>
                     <overwrite>true</overwrite>
                     <verbose>true</verbose>
                 </configuration>

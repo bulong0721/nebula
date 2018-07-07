@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: order-skeleton
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration

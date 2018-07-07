@@ -29,5 +29,6 @@
         <module>rhea-base-service</module>
         <module>rhea-base-messaging</module>
         <module>rhea-base-web</module>
+        <module>rhea-base-sharding-jdbc</module>
     </modules>
 </project>

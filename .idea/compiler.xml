@@ -9,6 +9,7 @@
         <module name="rhea-base-core" />
         <module name="rhea-base-messaging" />
         <module name="rhea-base-service" />
+        <module name="rhea-base-sharding-jdbc" />
         <module name="rhea-base-web" />
         <module name="rhea-generator" />
         <module name="rhea-order-api" />
@@ -23,6 +24,7 @@
       <module name="rhea-base-core" target="1.8" />
       <module name="rhea-base-messaging" target="1.8" />
       <module name="rhea-base-service" target="1.8" />
+      <module name="rhea-base-sharding-jdbc" target="1.8" />
       <module name="rhea-base-web" target="1.8" />
       <module name="rhea-generator" target="1.8" />
       <module name="rhea-order" target="1.8" />
