@@ -19,6 +19,7 @@
 
     <modules>
         <module>rhea-base</module>
+        <module>rhea-boot</module>
         <module>rhea-plugin</module>
         <module>rhea-order</module>
         <module>rhea-ui</module>

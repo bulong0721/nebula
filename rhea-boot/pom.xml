@@ -6,19 +6,17 @@
 
     <parent>
         <groupId>com.rhea</groupId>
-        <artifactId>rhea-base</artifactId>
+        <artifactId>rhea</artifactId>
         <version>0.7.0</version>
     </parent>
 
     <groupId>com.rhea</groupId>
-    <artifactId>rhea-base-sharding-jdbc</artifactId>
+    <artifactId>rhea-boot</artifactId>
     <version>0.7.0</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.shardingsphere</groupId>
-            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-            <version>${sharding-sphere.version}</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>rhea-boot-sharding-jdbc</module>
+        <module>rhea-boot-messaging</module>
+        <module>rhea-boot-sofa</module>
+    </modules>
 </project>

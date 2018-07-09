@@ -27,7 +27,7 @@
         </dependency>
         <dependency>
             <groupId>com.rhea</groupId>
-            <artifactId>rhea-base-sharding-jdbc</artifactId>
+            <artifactId>rhea-boot-sharding-jdbc</artifactId>
             <version>0.7.0</version>
         </dependency>
     </dependencies>
