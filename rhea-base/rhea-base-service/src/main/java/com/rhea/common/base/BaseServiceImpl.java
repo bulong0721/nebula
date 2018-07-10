@@ -14,27 +14,27 @@ public abstract class BaseServiceImpl<Record> implements BaseService<Record> {
 
 	@Override
 	public int countByExample(Example example) {
-		return 0;
+		return mapper.selectCountByExample(example);
 	}
 
 	@Override
 	public int deleteByExample(Example example) {
-		return 0;
+		return mapper.deleteByExample(example);
 	}
 
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
-		return 0;
+		return mapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public int insert(Record record) {
-		return 0;
+		return mapper.insert(record);
 	}
 
 	@Override
 	public int insertSelective(Record record) {
-		return 0;
+		return mapper.insertSelective(record);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public abstract class BaseServiceImpl<Record> implements BaseService<Record> {
 
 	@Override
 	public List<Record> selectByExample(Example example) {
-		return null;
+		return mapper.selectByExample(example);
 	}
 
 	@Override
@@ -94,12 +94,12 @@ public abstract class BaseServiceImpl<Record> implements BaseService<Record> {
 
 	@Override
 	public int updateByExample(Record record, Example example) {
-		return 0;
+		return mapper.updateByExample(record, example);
 	}
 
 	@Override
 	public int updateByPrimaryKeySelective(Record record) {
-		return 0;
+		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
@@ -109,11 +109,11 @@ public abstract class BaseServiceImpl<Record> implements BaseService<Record> {
 
 	@Override
 	public int updateByPrimaryKey(Record record) {
-		return 0;
+		return mapper.updateByPrimaryKey(record);
 	}
 
 	@Override
 	public int deleteByPrimaryKeys(String ids) {
-		return 0;
+		return mapper.deleteByPrimaryKey(ids);
 	}
 }

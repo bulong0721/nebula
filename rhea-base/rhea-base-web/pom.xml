@@ -20,6 +20,11 @@
             <artifactId>rhea-base-service</artifactId>
             <version>0.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
         <!-- 上传 -->
         <dependency>
             <groupId>commons-fileupload</groupId>
