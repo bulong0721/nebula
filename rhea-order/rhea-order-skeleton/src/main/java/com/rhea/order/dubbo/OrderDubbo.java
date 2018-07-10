@@ -1,8 +1,6 @@
-<#assign ctime = .now>
-<#assign domain = tableClass.shortClassName>
-package ${context}.dubbo;
+package com.rhea.order.dubbo;
 
-import ${context}.service.impl.${domain}ServiceImpl;
+import com.rhea.order.service.impl.OrderServiceImpl;
 
 import com.alipay.sofa.runtime.api.annotation.SofaService;
 import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
@@ -11,10 +9,10 @@ import org.springframework.stereotype.Component;
 /**
 * Skeleton代码生成器
 *
-* @author skeleton-generator on ${ctime?date}
+* @author skeleton-generator on 2018-7-10
 */
 @Component
 @SofaService(bindings = {@SofaServiceBinding(bindingType = "dubbo")})
-public class ${domain}ServiceDubbo extends ${domain}ServiceImpl {
+public class OrderDubbo extends OrderServiceImpl {
 
 }

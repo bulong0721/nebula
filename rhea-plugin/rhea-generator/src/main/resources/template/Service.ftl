@@ -1,11 +1,15 @@
-package ${package}.api;
+<#assign ctime = .now>
+<#assign domain = tableClass.shortClassName>
+package ${context}.api;
+
+import ${context}.model.${domain};
 
 import com.rhea.common.base.BaseService;
 
 /**
-* ${model}Service接口
-* Created by service-generator on ${ctime}.
+* ${domain}Service接口
+* Created by service-generator on ${ctime?date}
 */
-public interface ${model}Service extends BaseService<${model}> {
+public interface ${domain}Service extends BaseService<${domain}> {
 
 }

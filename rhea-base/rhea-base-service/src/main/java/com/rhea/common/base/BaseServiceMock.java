@@ -115,7 +115,4 @@ public abstract class BaseServiceMock<Mapper, Record> implements BaseService<Rec
 		return -1;
 	}
 
-	@Override
-	public void initMapper() {}
-
 }

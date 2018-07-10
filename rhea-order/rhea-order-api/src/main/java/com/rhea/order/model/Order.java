@@ -6,7 +6,7 @@ import lombok.ToString;
 
 @Data
 @ToString
-@Table(name = "order")
+@Table(name = "order_0")
 public class Order {
     @Column(name = "order_id")
     private Long orderId;

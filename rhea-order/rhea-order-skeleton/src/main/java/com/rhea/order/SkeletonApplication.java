@@ -1,4 +1,4 @@
-package com.rhea.order.dubbo;
+package com.rhea.order;
 
 import com.rhea.order.mapper.OrderMapper;
 import com.rhea.order.model.Order;
@@ -21,7 +21,7 @@ public class SkeletonApplication {
         latch.wait();
     }
 
-    @Bean
+//    @Bean
     CommandLineRunner commandLineRunner() {
         return new CommandLineRunner() {
             @Autowired

@@ -30,5 +30,10 @@
             <artifactId>rhea-boot-sharding-jdbc</artifactId>
             <version>0.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.rhea</groupId>
+            <artifactId>rhea-boot-sofa</artifactId>
+            <version>0.7.0</version>
+        </dependency>
     </dependencies>
 </project>

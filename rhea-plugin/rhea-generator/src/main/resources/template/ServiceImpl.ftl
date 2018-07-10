@@ -1,15 +1,21 @@
-package ${package}.api;
+<#assign ctime = .now>
+<#assign domain = tableClass.shortClassName>
+package ${context}.service.impl;
 
-import com.rhea.common.base.BaseService;
 import com.rhea.common.base.BaseServiceImpl;
+import ${context}.model.${domain};
+import ${context}.api.${domain}Service;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
-* ${model}ServiceImpl
-* Created by serviceImpl-generator on ${ctime}.
+* ${domain}ServiceImpl
+* Created by serviceImpl-generator on ${ctime?date}
 */
-public interface ${model}Service extends BaseService<${model}> {
+@Slf4j
+@Service
+public class ${domain}ServiceImpl extends BaseServiceImpl<${domain}> implements ${domain}Service {
 
 }

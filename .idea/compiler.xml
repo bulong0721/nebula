@@ -9,7 +9,6 @@
         <module name="rhea-base-core" />
         <module name="rhea-base-service" />
         <module name="rhea-base-web" />
-        <module name="rhea-boot" />
         <module name="rhea-boot-messaging" />
         <module name="rhea-boot-sharding-jdbc" />
         <module name="rhea-boot-sofa" />

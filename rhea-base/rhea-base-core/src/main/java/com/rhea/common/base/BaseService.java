@@ -1,6 +1,5 @@
 package com.rhea.common.base;
 
-import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -122,7 +121,7 @@ public interface BaseService<Record> {
      * @param example
      * @return
      */
-    int updateByExampleSelective(@Param("record") Record record, @Param("example") Example example);
+    int updateByExampleSelective(Record record, Example example);
 
     /**
      * 根据条件更新记录有效字段，附带BLOB字段
@@ -130,7 +129,7 @@ public interface BaseService<Record> {
      * @param example
      * @return
      */
-    int updateByExampleWithBLOBs(@Param("record") Record record, @Param("example") Example example);
+    int updateByExampleWithBLOBs(Record record, Example example);
 
     /**
      * 根据条件更新记录
@@ -138,7 +137,7 @@ public interface BaseService<Record> {
      * @param example
      * @return
      */
-    int updateByExample(@Param("record") Record record, @Param("example") Example example);
+    int updateByExample(Record record, Example example);
 
     /**
      * 根据主键更新记录有效字段
@@ -167,10 +166,5 @@ public interface BaseService<Record> {
      * @return
      */
     int deleteByPrimaryKeys(String ids);
-
-    /**
-     * 初始化mapper
-     */
-    void initMapper();
 
 }

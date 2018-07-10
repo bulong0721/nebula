@@ -3,3 +3,9 @@ spring:
     name: order-skeleton
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration
+
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: zookeeper://localhost:2181

@@ -12,6 +12,7 @@
 
     <groupId>com.rhea</groupId>
     <artifactId>rhea-boot</artifactId>
+    <packaging>pom</packaging>
     <version>0.7.0</version>
 
     <modules>

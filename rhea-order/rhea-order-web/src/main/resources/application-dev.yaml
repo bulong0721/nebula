@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: order-web
+
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: zookeeper://localhost:2181
+        dubbo-port: 20880
