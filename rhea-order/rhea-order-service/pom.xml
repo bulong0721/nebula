@@ -16,6 +16,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.39</version>
+        </dependency>
+        <dependency>
             <groupId>com.rhea</groupId>
             <artifactId>rhea-base-service</artifactId>
             <version>0.7.0</version>

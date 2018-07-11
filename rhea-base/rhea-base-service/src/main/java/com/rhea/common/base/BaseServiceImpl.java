@@ -1,5 +1,6 @@
 package com.rhea.common.base;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -10,7 +11,8 @@ import java.util.List;
  */
 public abstract class BaseServiceImpl<Record> implements BaseService<Record> {
 
-	public BaseMapper<Record> mapper;
+	@Autowired
+	protected BaseMapper<Record> mapper;
 
 	@Override
 	public int countByExample(Example example) {
@@ -78,8 +80,8 @@ public abstract class BaseServiceImpl<Record> implements BaseService<Record> {
 	}
 
 	@Override
-	public Record selectByPrimaryKey(Integer id) {
-		return null;
+	public Record selectByPrimaryKey(Object id) {
+		return mapper.selectByPrimaryKey(id);
 	}
 
 	@Override

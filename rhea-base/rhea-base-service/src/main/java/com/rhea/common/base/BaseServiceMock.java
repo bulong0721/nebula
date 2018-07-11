@@ -76,7 +76,7 @@ public abstract class BaseServiceMock<Mapper, Record> implements BaseService<Rec
 	}
 
 	@Override
-	public Record selectByPrimaryKey(Integer id) {
+	public Record selectByPrimaryKey(Object id) {
 		return null;
 	}
 

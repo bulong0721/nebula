@@ -16,9 +16,7 @@ import java.util.concurrent.CountDownLatch;
 public class SkeletonApplication {
 
     public static void main(String[] args) throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
         SpringApplication.run(SkeletonApplication.class);
-        latch.wait();
     }
 
 //    @Bean

@@ -41,12 +41,13 @@
             <property name="fileName" value="${tableClass.shortClassName}Dubbo.java"/>
         </plugin>
 
-        <!--<plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">-->
-        <!--<property name="targetProject" value="src/main/java"/>-->
-        <!--<property name="targetPackage" value="com.rhea.order.service.impl"/>-->
-        <!--<property name="templatePath" value="template/ServiceImpl.ftl"/>-->
-        <!--<property name="fileName" value="${tableClass.shortClassName}ServiceImpl.java"/>-->
-        <!--</plugin>-->
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="com.rhea.order"/>
+            <property name="targetProject" value="src/main/java"/>
+            <property name="targetPackage" value="${context}.web.controller"/>
+            <property name="templatePath" value="template/Controller.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}Controller.java"/>
+        </plugin>
 
 
         <!-- 数据库连接 -->
@@ -56,7 +57,9 @@
                         password="root"/>
 
         <!-- model生成 -->
-        <javaModelGenerator targetPackage="com.rhea.order.model" targetProject="../rhea-order-api/src/main/java"/>
+        <javaModelGenerator targetPackage="com.rhea.order.model" targetProject="../rhea-order-api/src/main/java">
+            <property name="rootClass" value="com.rhea.common.base.BaseEntity"/>
+        </javaModelGenerator>
 
         <!-- MapperXML生成 -->
         <sqlMapGenerator targetPackage="com.rhea.order.mapper" targetProject="src/main/resources"/>

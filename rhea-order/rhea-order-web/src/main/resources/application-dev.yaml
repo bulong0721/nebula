@@ -7,3 +7,6 @@ com:
     sofa:
       rpc:
         registry-address: zookeeper://localhost:2181
+
+server:
+  port: 9090
