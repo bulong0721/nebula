@@ -2,6 +2,7 @@
 <#assign domain = tableClass.shortClassName>
 package ${context}.dubbo;
 
+import ${context}.api.${domain}Service;
 import ${context}.service.impl.${domain}ServiceImpl;
 
 import com.alipay.sofa.runtime.api.annotation.SofaService;
@@ -15,6 +16,6 @@ import org.springframework.stereotype.Component;
 */
 @Component
 @SofaService(bindings = {@SofaServiceBinding(bindingType = "dubbo")})
-public class ${domain}ServiceDubbo extends ${domain}ServiceImpl {
+public class ${domain}ServiceDubbo extends ${domain}ServiceImpl implements ${domain}Service {
 
 }

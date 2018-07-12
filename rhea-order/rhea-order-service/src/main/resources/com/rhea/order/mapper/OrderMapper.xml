@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <id column="order_id" jdbcType="BIGINT" property="orderId" />
     <result column="order_name" jdbcType="VARCHAR" property="orderName" />
   </resultMap>
 </mapper>

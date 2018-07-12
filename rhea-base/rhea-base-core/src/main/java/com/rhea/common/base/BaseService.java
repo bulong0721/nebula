@@ -1,13 +1,13 @@
 package com.rhea.common.base;
 
-import tk.mybatis.mapper.entity.Example;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
 /**
  * BaseService接口
  */
-public interface BaseService<Record> {
+public interface BaseService<Entity, Example> {
 
     /**
      * 根据条件查询记录数量
@@ -25,146 +25,83 @@ public interface BaseService<Record> {
 
     /**
      * 根据主键删除记录
-     * @param id
+     * @param pk
      * @return
      */
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPK(Object pk);
 
     /**
      * 插入记录
-     * @param record
+     * @param entity
      * @return
      */
-    int insert(Record record);
+    int insert(Entity entity);
 
     /**
      * 插入记录有效字段
-     * @param record
+     * @param entity
      * @return
      */
-    int insertSelective(Record record);
+    int insertSelective(Entity entity);
 
     /**
-     * 根据条件查询记录，附带BLOB字段
+     * 根据条件查询记录(最大只查询100条)
      * @param example
      * @return
      */
-    List<Record> selectByExampleWithBLOBs(Example example);
+    List<Entity> listByExample(Example example);
 
     /**
-     * 根据条件查询记录
+     * 根据条件分页查询
      * @param example
+     * @param pageIndex
+     * @param pageSize
      * @return
      */
-    List<Record> selectByExample(Example example);
-
-    /**
-     * 根据条件查询记录并按页码分页，附带BLOB字段
-     * @param example 条件
-     * @param pageNum 页数
-     * @param pageSize 每页记录数
-     * @return
-     */
-    List<Record> selectByExampleWithBLOBsForStartPage(Example example, Integer pageNum, Integer pageSize);
-
-    /**
-     * 根据条件查询记录并按页码分页
-     * @param example 条件
-     * @param pageNum 页数
-     * @param pageSize 每页记录数
-     * @return
-     */
-    List<Record> selectByExampleForStartPage(Example example, Integer pageNum, Integer pageSize);
-
-    /**
-     * 根据条件查询记录并按最后记录数分页，附带BLOB字段
-     * @param example 条件
-     * @param offset 跳过数量
-     * @param limit 查询数量
-     * @return
-     */
-    List<Record> selectByExampleWithBLOBsForOffsetPage(Example example, Integer offset, Integer limit);
-
-    /**
-     * 根据条件查询记录并按最后记录数分页
-     * @param example 条件
-     * @param offset 跳过数量
-     * @param limit 查询数量
-     * @return
-     */
-    List<Record> selectByExampleForOffsetPage(Example example, Integer offset, Integer limit);
+    PageInfo<Entity> pageByExample(Example example, int pageIndex, int pageSize);
 
     /**
      * 根据条件查询第一条记录
      * @param example
      * @return
      */
-    Record selectFirstByExample(Example example);
-
-    /**
-     * 根据条件查询第一条记录，附带BLOB字段
-     * @param example
-     * @return
-     */
-    Record selectFirstByExampleWithBLOBs(Example example);
+    Entity findByExample(Example example);
 
     /**
      * 根据主键查询记录
-     * @param id
+     * @param pk
      * @return
      */
-    Record selectByPrimaryKey(Object id);
+    Entity findByPK(Object pk);
 
     /**
      * 根据条件更新有效字段
-     * @param record
+     * @param entity
      * @param example
      * @return
      */
-    int updateByExampleSelective(Record record, Example example);
-
-    /**
-     * 根据条件更新记录有效字段，附带BLOB字段
-     * @param record
-     * @param example
-     * @return
-     */
-    int updateByExampleWithBLOBs(Record record, Example example);
+    int updateByExampleSelective(Entity entity, Example example);
 
     /**
      * 根据条件更新记录
-     * @param record
+     * @param entity
      * @param example
      * @return
      */
-    int updateByExample(Record record, Example example);
+    int updateByExample(Entity entity, Example example);
 
     /**
      * 根据主键更新记录有效字段
-     * @param record
+     * @param entity
      * @return
      */
-    int updateByPrimaryKeySelective(Record record);
-
-    /**
-     * 根据主键更新记录，附带BLOB字段
-     * @param record
-     * @return
-     */
-    int updateByPrimaryKeyWithBLOBs(Record record);
+    int updateByPKSelective(Entity entity);
 
     /**
      * 根据主键更新记录
-     * @param record
+     * @param entity
      * @return
      */
-    int updateByPrimaryKey(Record record);
-
-    /**
-     * 根据主键批量删除记录
-     * @param ids
-     * @return
-     */
-    int deleteByPrimaryKeys(String ids);
+    int updateByPK(Entity entity);
 
 }

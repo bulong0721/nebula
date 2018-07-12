@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 /**
 * Skeleton代码生成器
 *
-* @author skeleton-generator on 2018-7-10
+* @author skeleton-generator on 2018-7-12
 */
 @Component
 @SofaService(bindings = {@SofaServiceBinding(bindingType = "dubbo")})
-public class OrderDubbo extends OrderServiceImpl implements OrderService {
+public class OrderServiceDubbo extends OrderServiceImpl implements OrderService {
 
 }

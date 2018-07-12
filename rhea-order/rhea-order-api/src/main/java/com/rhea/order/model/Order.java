@@ -1,15 +1,15 @@
 package com.rhea.order.model;
 
+import com.rhea.common.base.BaseEntity;
 import javax.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 
-import java.io.Serializable;
-
 @Data
 @ToString
 @Table(name = "order")
-public class Order implements Serializable {
+public class Order extends BaseEntity {
+    @Id
     @Column(name = "order_id")
     private Long orderId;
 
