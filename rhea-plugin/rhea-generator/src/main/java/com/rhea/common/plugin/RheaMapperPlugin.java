@@ -56,7 +56,7 @@ public class RheaMapperPlugin extends MapperPlugin {
 
     @Override
     public boolean modelExampleClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        return false;
+        return true;
     }
 
     @Override

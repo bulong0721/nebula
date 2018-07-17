@@ -27,6 +27,7 @@
         <module>rhea-boot</module>
         <module>rhea-plugin</module>
         <module>rhea-order</module>
+        <module>rhea-upms</module>
         <module>rhea-ui</module>
     </modules>
 

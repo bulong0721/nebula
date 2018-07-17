@@ -17,6 +17,13 @@ public interface BaseService<Entity, Example> {
     int countByExample(Example example);
 
     /**
+     * 根据条件判断是否有记录存在
+     * @param example
+     * @return
+     */
+    boolean existsByExample(Example example);
+
+    /**
      * 根据条件删除记录
      * @param example
      * @return

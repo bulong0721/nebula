@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rhea.upms.mapper.UpmsLogMapper">
+  <resultMap id="BaseResultMap" type="com.rhea.upms.model.UpmsLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="log_id" jdbcType="INTEGER" property="logId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="start_time" jdbcType="BIGINT" property="startTime" />
+    <result column="spend_time" jdbcType="INTEGER" property="spendTime" />
+    <result column="base_path" jdbcType="VARCHAR" property="basePath" />
+    <result column="uri" jdbcType="VARCHAR" property="uri" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="permissions" jdbcType="VARCHAR" property="permissions" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.rhea.upms.model.UpmsLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="parameter" jdbcType="LONGVARCHAR" property="parameter" />
+    <result column="result" jdbcType="LONGVARCHAR" property="result" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    parameter, result
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.rhea.upms.model.UpmsLogExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from upms_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update upms_log
+    set log_id = #{record.logId,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=BIGINT},
+      spend_time = #{record.spendTime,jdbcType=INTEGER},
+      base_path = #{record.basePath,jdbcType=VARCHAR},
+      uri = #{record.uri,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      method = #{record.method,jdbcType=VARCHAR},
+      user_agent = #{record.userAgent,jdbcType=VARCHAR},
+      ip = #{record.ip,jdbcType=VARCHAR},
+      permissions = #{record.permissions,jdbcType=VARCHAR},
+      parameter = #{record.parameter,jdbcType=LONGVARCHAR},
+      result = #{record.result,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

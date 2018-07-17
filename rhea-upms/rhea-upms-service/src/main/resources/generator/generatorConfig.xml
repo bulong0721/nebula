@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <plugin type="com.rhea.common.plugin.LombokPlugin">
+            <property name="ToString" value="true"/>
+        </plugin>
+
+        <plugin type="com.rhea.common.plugin.SerializablePlugin">
+            <property name="suppressJavaInterface" value="true"/>
+        </plugin>
+
+        <plugin type="com.rhea.common.plugin.RheaMapperPlugin">
+            <property name="mappers" value="com.rhea.common.base.BaseMapper"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="forceAnnotation" value="true"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="com.rhea.upms"/>
+            <property name="targetProject" value="../rhea-upms-api/src/main/java"/>
+            <property name="targetPackage" value="${context}.api"/>
+            <property name="templatePath" value="template/Service.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}Service.java"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="com.rhea.upms"/>
+            <property name="targetProject" value="src/main/java"/>
+            <property name="targetPackage" value="${context}.service.impl"/>
+            <property name="templatePath" value="template/ServiceImpl.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}ServiceImpl.java"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="com.rhea.upms"/>
+            <property name="targetProject" value="../rhea-upms-skeleton/src/main/java"/>
+            <property name="targetPackage" value="${context}.dubbo"/>
+            <property name="templatePath" value="template/Dubbo.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}ServiceDubbo.java"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="com.rhea.upms"/>
+            <property name="targetProject" value="../rhea-upms-web/src/main/java"/>
+            <property name="targetPackage" value="${context}.web.controller"/>
+            <property name="templatePath" value="template/Controller.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}Controller.java"/>
+        </plugin>
+
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/zheng?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true"
+                        userId="root"
+                        password="root"/>
+
+        <!-- model生成 -->
+        <javaModelGenerator targetPackage="com.rhea.upms.model" targetProject="../rhea-upms-api/src/main/java">
+            <property name="rootClass" value="com.rhea.common.base.BaseEntity"/>
+        </javaModelGenerator>
+
+        <!-- MapperXML生成 -->
+        <sqlMapGenerator targetPackage="com.rhea.upms.mapper" targetProject="src/main/resources"/>
+
+        <!-- Mapper接口生成 -->
+        <javaClientGenerator targetPackage="com.rhea.upms.mapper" targetProject="src/main/java" type="XMLMAPPER">
+
+        </javaClientGenerator>
+
+        <table tableName="upms_log" domainObjectName="UpmsLog"></table>
+        <table tableName="upms_organization" domainObjectName="UpmsOrganization"></table>
+        <table tableName="upms_permission" domainObjectName="UpmsPermission"></table>
+        <table tableName="upms_role" domainObjectName="UpmsRole"></table>
+        <table tableName="upms_role_permission" domainObjectName="UpmsRolePermission"></table>
+        <table tableName="upms_system" domainObjectName="UpmsSystem"></table>
+        <table tableName="upms_user" domainObjectName="UpmsUser"></table>
+        <table tableName="upms_user_organization" domainObjectName="UpmsUserOrganization"></table>
+        <table tableName="upms_user_permission" domainObjectName="UpmsUserPermission"></table>
+        <table tableName="upms_user_role" domainObjectName="UpmsUserRole"></table>
+    </context>
+</generatorConfiguration>

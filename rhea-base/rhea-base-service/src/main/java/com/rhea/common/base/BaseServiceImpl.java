@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * 实现BaseService抽象类
- * Created by ZhangShuzheng on 2017/01/07.
+ * 实现BaseService抽象类 Created by ZhangShuzheng on 2017/01/07.
  */
 @Slf4j
 public abstract class BaseServiceImpl<Entity, Example> implements BaseService<Entity, Example> {
@@ -20,6 +19,11 @@ public abstract class BaseServiceImpl<Entity, Example> implements BaseService<En
     @Override
     public int countByExample(Example example) {
         return mapper.selectCountByExample(example);
+    }
+
+    @Override
+    public boolean existsByExample(Example example) {
+        return mapper.selectCountByExample(example) > 0;
     }
 
     @Override

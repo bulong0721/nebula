@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rhea.upms.mapper.UpmsSystemMapper">
+  <resultMap id="BaseResultMap" type="com.rhea.upms.model.UpmsSystem">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="system_id" jdbcType="INTEGER" property="systemId" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="banner" jdbcType="VARCHAR" property="banner" />
+    <result column="theme" jdbcType="VARCHAR" property="theme" />
+    <result column="basepath" jdbcType="VARCHAR" property="basepath" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="ctime" jdbcType="BIGINT" property="ctime" />
+    <result column="orders" jdbcType="BIGINT" property="orders" />
+  </resultMap>
+</mapper>

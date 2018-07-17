@@ -17,6 +17,10 @@
         <module name="rhea-order-service" />
         <module name="rhea-order-skeleton" />
         <module name="rhea-order-web" />
+        <module name="rhea-upms-api" />
+        <module name="rhea-upms-service" />
+        <module name="rhea-upms-skeleton" />
+        <module name="rhea-upms-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -39,6 +43,11 @@
       <module name="rhea-order-web" target="1.8" />
       <module name="rhea-plugin" target="1.8" />
       <module name="rhea-ui" target="1.8" />
+      <module name="rhea-upms" target="1.8" />
+      <module name="rhea-upms-api" target="1.8" />
+      <module name="rhea-upms-service" target="1.8" />
+      <module name="rhea-upms-skeleton" target="1.8" />
+      <module name="rhea-upms-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
