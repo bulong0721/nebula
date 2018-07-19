@@ -20,6 +20,11 @@
             <artifactId>rhea-base-core</artifactId>
             <version>0.7.0</version>
         </dependency>
+        <!-- spring-boot-redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
         <!-- fluent-validator -->
         <dependency>
             <groupId>com.baidu.unbiz</groupId>
