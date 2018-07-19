@@ -78,7 +78,7 @@
         <!-- fluent-validator -->
         <dependency>
             <groupId>com.baidu.unbiz</groupId>
-            <artifactId>fluent-validator</artifactId>
+            <artifactId>fluent-validator-jsr303</artifactId>
             <version>1.0.6</version>
             <exclusions>
                 <exclusion>

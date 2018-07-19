@@ -1,4 +1,4 @@
-package com.rhea.upms.web.controller;
+package com.rhea.upms.web.controller.upms;
 
 import com.rhea.common.base.BaseController;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Slf4j
 @RestController
-@RequestMapping("/UpmsUser")
+@RequestMapping("/user")
 public class UpmsUserController extends BaseController {
 
 }
