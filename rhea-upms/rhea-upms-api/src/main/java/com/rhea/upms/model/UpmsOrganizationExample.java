@@ -1,9 +1,10 @@
 package com.rhea.upms.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpmsOrganizationExample {
+public class UpmsOrganizationExample implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -63,7 +64,7 @@ public class UpmsOrganizationExample {
         distinct = false;
     }
 
-    protected abstract static class GeneratedCriteria implements java.io.Serializable {
+    protected abstract static class GeneratedCriteria implements Serializable {
         protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
@@ -425,14 +426,14 @@ public class UpmsOrganizationExample {
         }
     }
 
-    public static class Criteria extends GeneratedCriteria implements java.io.Serializable {
+    public static class Criteria extends GeneratedCriteria implements Serializable {
 
         protected Criteria() {
             super();
         }
     }
 
-    public static class Criterion implements java.io.Serializable {
+    public static class Criterion implements Serializable {
         private String condition;
 
         private Object value;

@@ -1,6 +1,7 @@
 package com.rhea.upms.model;
 
 import com.rhea.common.base.BaseEntity;
+import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Data;
 import lombok.ToString;
@@ -8,7 +9,7 @@ import lombok.ToString;
 @Data
 @ToString
 @Table(name = "upms_user_organization")
-public class UpmsUserOrganization extends BaseEntity {
+public class UpmsUserOrganization extends BaseEntity implements Serializable {
     /**
      * 编号
      */

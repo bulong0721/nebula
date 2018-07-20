@@ -12,7 +12,7 @@
         </plugin>
 
         <plugin type="com.rhea.common.plugin.SerializablePlugin">
-            <property name="suppressJavaInterface" value="true"/>
+            <property name="suppressJavaInterface" value="false"/>
         </plugin>
 
         <plugin type="com.rhea.common.plugin.RheaMapperPlugin">

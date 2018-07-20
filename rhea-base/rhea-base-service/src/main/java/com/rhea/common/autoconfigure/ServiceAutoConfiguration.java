@@ -1,4 +1,4 @@
-package com.rhea.common.autoconfigurate;
+package com.rhea.common.autoconfigure;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

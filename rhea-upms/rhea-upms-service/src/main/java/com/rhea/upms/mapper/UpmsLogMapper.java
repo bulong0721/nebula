@@ -9,7 +9,4 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UpmsLogMapper extends BaseMapper<UpmsLog> {
-    List<UpmsLog> selectByExampleWithBLOBs(UpmsLogExample example);
-
-    int updateByExampleWithBLOBs(@Param("record") UpmsLog record, @Param("example") UpmsLogExample example);
 }

@@ -37,7 +37,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.hyperion.HyperionApplication</mainClass>
+                    <mainClass>com.rhea.upms.UpmsDubboApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: upms-web
+  redis:
+    host: 10.9.20.18
+    port: 6379
+    database: 15
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: zookeeper://localhost:2181
+
+server:
+  port: 9099
