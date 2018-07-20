@@ -3,6 +3,10 @@ spring:
     name: order-skeleton
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration
+  redis:
+    host: 10.9.20.18
+    port: 6379
+    database: 15
 
 com:
   alipay:

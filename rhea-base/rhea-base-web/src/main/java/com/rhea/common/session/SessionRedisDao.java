@@ -5,17 +5,18 @@ import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 
 @Slf4j
 public class SessionRedisDao extends EnterpriseCacheSessionDAO {
     private static final int EXPIRE_TIME = 1800;
-    @Value("${shiro.session.prefix}")
-    private String prefix;
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private final String prefix;
+    private final RedisTemplate<String, Object> redisTemplate;
+
+    public SessionRedisDao(String prefix, RedisTemplate<String, Object> template) {
+        this.prefix = prefix;
+        redisTemplate = template;
+    }
 
     @Override protected Serializable doCreate(Session session) {
         Serializable sessionId = super.doCreate(session);

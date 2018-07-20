@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.rhea.common.autoconfigure.WebAutoConfiguration

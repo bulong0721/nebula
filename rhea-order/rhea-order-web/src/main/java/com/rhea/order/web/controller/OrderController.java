@@ -14,7 +14,6 @@ import com.rhea.order.api.OrderService;
 import com.rhea.order.model.Order;
 import com.rhea.order.model.OrderExample;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,7 +46,7 @@ public class OrderController extends BaseController {
         return JSON.json(page);
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add2", method = RequestMethod.POST)
     public int add(@RequestBody Order order) {
         // 订单实体校验
         ComplexResult result = FluentValidator.checkAll().failOver()

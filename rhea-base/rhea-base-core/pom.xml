@@ -33,6 +33,7 @@
             <groupId>com.baidu.unbiz</groupId>
             <artifactId>fluent-validator</artifactId>
             <version>1.0.6</version>
+            <optional>true</optional>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
