@@ -1,4 +1,4 @@
-package com.rhea.common.session;
+package com.rhea.common.shiro;
 
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
@@ -8,12 +8,12 @@ import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
 import org.springframework.data.redis.core.RedisTemplate;
 
 @Slf4j
-public class SessionRedisDao extends EnterpriseCacheSessionDAO {
+public class SessionDao extends EnterpriseCacheSessionDAO {
     private static final int EXPIRE_TIME = 1800;
     private final String prefix;
     private final RedisTemplate<String, Object> redisTemplate;
 
-    public SessionRedisDao(String prefix, RedisTemplate<String, Object> template) {
+    public SessionDao(String prefix, RedisTemplate<String, Object> template) {
         this.prefix = prefix;
         redisTemplate = template;
     }

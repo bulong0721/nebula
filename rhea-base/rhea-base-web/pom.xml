@@ -16,6 +16,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.rhea</groupId>
             <artifactId>rhea-base-core</artifactId>
             <version>0.7.0</version>

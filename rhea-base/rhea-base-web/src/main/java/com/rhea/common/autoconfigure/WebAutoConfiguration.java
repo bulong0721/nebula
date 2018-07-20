@@ -1,6 +1,6 @@
 package com.rhea.common.autoconfigure;
 
-import com.rhea.common.session.SessionRedisDao;
+import com.rhea.common.shiro.SessionDao;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -16,7 +16,7 @@ public class WebAutoConfiguration {
     @Bean
     @ConditionalOnBean({SessionManager.class})
     @ConditionalOnProperty("rhea.web.session.prefix")
-    SessionRedisDao sessionRedisDao(WebProperties webProperties, RedisTemplate redisTemplate) {
+    SessionDao sessionRedisDao(WebProperties webProperties, RedisTemplate redisTemplate) {
         return null;
     }
 }
