@@ -77,7 +77,6 @@ public class LombokPlugin extends PluginAdapter {
 
     @Override
     public boolean clientGenerated(Interface interfaze, TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        String autoService = introspectedTable.getTableConfigurationProperty("autoService");
         interfaze.addImportedType(new FullyQualifiedJavaType("org.apache.ibatis.annotations.Mapper"));
         interfaze.addAnnotation("@Mapper");
         return true;

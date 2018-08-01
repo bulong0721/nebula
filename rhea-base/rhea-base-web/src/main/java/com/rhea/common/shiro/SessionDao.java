@@ -27,10 +27,10 @@ public class SessionDao extends EnterpriseCacheSessionDAO {
 
     @Override protected Session doReadSession(Serializable sessionId) {
         Session session = super.doReadSession(sessionId);
-        log.debug("read session:{}", session.getId());
         if (null == session) {
             session = (Session) redisTemplate.opsForValue().get(buildKey(sessionId));
         }
+        log.debug("read session:{}", session.getId());
         return session;
     }
 

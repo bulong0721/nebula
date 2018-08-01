@@ -15,7 +15,7 @@ public class WebAutoConfiguration {
 
     @Bean
     @ConditionalOnBean({SessionManager.class})
-    @ConditionalOnProperty("rhea.web.session.prefix")
+    @ConditionalOnProperty("shiro.session.prefix")
     SessionDao sessionRedisDao(WebProperties webProperties, RedisTemplate redisTemplate) {
         return null;
     }

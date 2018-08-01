@@ -65,7 +65,7 @@ public class ConsumerConfigHelper {
 
         Integer timeout = param.getTimeout();
         Integer retries = param.getRetries();
-        String type = param.getType();
+//        String type = param.getType();
         Integer addressWaitTime = param.getAddressWaitTime();
         Object callbackHandler = param.getCallbackHandler();
         String genericInterface = param.getGenericInterface();

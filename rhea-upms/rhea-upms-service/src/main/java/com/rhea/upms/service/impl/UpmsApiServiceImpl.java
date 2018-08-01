@@ -38,44 +38,53 @@ public class UpmsApiServiceImpl implements UpmsApiService {
     @Autowired
     private UpmsLogMapper logMapper;
 
-    @Override public List<UpmsPermission> selectUpmsPermissionByUpmsUserId(Integer upmsUserId) {
-        return null;
-    }
-
-    @Override public List<UpmsPermission> selectUpmsPermissionByUpmsUserIdByCache(Integer upmsUserId) {
-        return null;
-    }
-
-    @Override public List<UpmsRole> selectUpmsRoleByUpmsUserId(Integer upmsUserId) {
-        return null;
-    }
-
-    @Override public List<UpmsRole> selectUpmsRoleByUpmsUserIdByCache(Integer upmsUserId) {
-        return null;
-    }
-
-    @Override public List<UpmsRolePermission> selectUpmsRolePermisstionByUpmsRoleId(Integer upmsRoleId) {
-        return null;
-    }
-
-    @Override public List<UpmsUserPermission> selectUpmsUserPermissionByUpmsUserId(Integer upmsUserId) {
-        return null;
-    }
-
-    @Override public List<UpmsSystem> selectUpmsSystemByExample(UpmsSystemExample upmsSystemExample) {
+    @Override
+    public List<UpmsPermission> selectPermissionByUserId(Integer upmsUserId) {
         return null;
     }
 
     @Override
-    public List<UpmsOrganization> selectUpmsOrganizationByExample(UpmsOrganizationExample upmsOrganizationExample) {
+    public List<UpmsPermission> selectPermissionByUserIdByCache(Integer upmsUserId) {
         return null;
     }
 
-    @Override public UpmsUser selectUpmsUserByUsername(String username) {
+    @Override
+    public List<UpmsRole> selectRoleByUserId(Integer upmsUserId) {
         return null;
     }
 
-    @Override public int insertUpmsLogSelective(UpmsLog record) {
+    @Override
+    public List<UpmsRole> selectRoleByUserIdByCache(Integer upmsUserId) {
+        return null;
+    }
+
+    @Override
+    public List<UpmsRolePermission> selectRolePermissionByRoleId(Integer upmsRoleId) {
+        return null;
+    }
+
+    @Override
+    public List<UpmsUserPermission> selectUserPermissionByUserId(Integer upmsUserId) {
+        return null;
+    }
+
+    @Override
+    public List<UpmsSystem> selectSystemByExample(UpmsSystemExample upmsSystemExample) {
+        return null;
+    }
+
+    @Override
+    public List<UpmsOrganization> selectOrganizationByExample(UpmsOrganizationExample upmsOrganizationExample) {
+        return null;
+    }
+
+    @Override
+    public UpmsUser selectUserByUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public int insertLogSelective(UpmsLog record) {
         return 0;
     }
 }

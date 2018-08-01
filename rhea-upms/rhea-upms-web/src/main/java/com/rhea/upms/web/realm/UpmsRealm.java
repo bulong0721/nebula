@@ -30,10 +30,10 @@ public class UpmsRealm extends AuthorizingRealm {
 
     @Override protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String username = (String) principals.getPrimaryPrincipal();
-        UpmsUser upmsUser = upmsApiService.selectUpmsUserByUsername(username);
+        UpmsUser upmsUser = upmsApiService.selectUserByUsername(username);
 
         // 当前用户所有角色
-        List<UpmsRole> upmsRoles = upmsApiService.selectUpmsRoleByUpmsUserId(upmsUser.getUserId());
+        List<UpmsRole> upmsRoles = upmsApiService.selectRoleByUserId(upmsUser.getUserId());
         Set<String> roles = new HashSet<>();
         for (UpmsRole upmsRole : upmsRoles) {
             if (!Strings.isNullOrEmpty(upmsRole.getName())) {
@@ -42,7 +42,7 @@ public class UpmsRealm extends AuthorizingRealm {
         }
 
         // 当前用户所有权限
-        List<UpmsPermission> upmsPermissions = upmsApiService.selectUpmsPermissionByUpmsUserId(upmsUser.getUserId());
+        List<UpmsPermission> upmsPermissions = upmsApiService.selectPermissionByUserId(upmsUser.getUserId());
         Set<String> permissions = new HashSet<>();
         for (UpmsPermission upmsPermission : upmsPermissions) {
             if (!Strings.isNullOrEmpty(upmsPermission.getPermissionValue())) {
@@ -62,7 +62,7 @@ public class UpmsRealm extends AuthorizingRealm {
         String password = new String((char[]) authenticationToken.getCredentials());
 
         // 查询用户信息
-        UpmsUser upmsUser = upmsApiService.selectUpmsUserByUsername(username);
+        UpmsUser upmsUser = upmsApiService.selectUserByUsername(username);
 
         if (null == upmsUser) {
             throw new UnknownAccountException();
