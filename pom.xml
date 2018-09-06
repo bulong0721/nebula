@@ -25,8 +25,6 @@
         <module>rhea-base</module>
         <module>rhea-boot</module>
         <module>rhea-plugin</module>
-        <module>rhea-order</module>
-        <module>rhea-upms</module>
     </modules>
 
     <repositories>
@@ -75,6 +73,11 @@
                             <arg>-Amapstruct.defaultComponentModel=spring</arg>
                         </compilerArgs>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
