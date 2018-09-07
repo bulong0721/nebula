@@ -6,20 +6,13 @@
 
     <parent>
         <groupId>com.rhea</groupId>
-        <artifactId>rhea</artifactId>
+        <artifactId>rhea-boot</artifactId>
         <version>0.7.0</version>
     </parent>
 
     <groupId>com.rhea</groupId>
-    <artifactId>rhea-boot</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>rhea-boot-configuration</artifactId>
     <version>0.7.0</version>
 
-    <modules>
-        <module>rhea-boot-sharding-jdbc</module>
-        <module>rhea-boot-messaging</module>
-        <module>rhea-boot-rpc-framework</module>
-        <module>rhea-boot-schedule</module>
-        <module>rhea-boot-configuration</module>
-    </modules>
+    
 </project>
