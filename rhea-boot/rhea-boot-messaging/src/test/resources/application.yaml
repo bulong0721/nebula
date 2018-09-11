@@ -1,0 +1,5 @@
+rhea:
+  mq:
+    serverUrl: oms:rocketmq:alice@rocketmq.apache.org/us-east
+    producerGroup: test1
+    consumerGroup: test1

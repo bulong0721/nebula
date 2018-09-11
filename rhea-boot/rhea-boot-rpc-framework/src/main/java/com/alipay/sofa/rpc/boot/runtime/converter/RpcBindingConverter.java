@@ -104,7 +104,7 @@ public abstract class RpcBindingConverter implements BindingConverter<RpcBinding
      * 创建 RpcBinding
      *
      * @param bindingParam       the RpcBindingParam
-     * @param applicationContext spring 上下文
+     * @param applicationContext configuration 上下文
      * @param inBinding          是否是服务引用
      * @return the RpcBinding
      */

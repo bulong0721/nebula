@@ -25,7 +25,7 @@
             <artifactId>rhea-base-core</artifactId>
             <version>0.7.0</version>
         </dependency>
-        <!-- spring-boot-redis -->
+        <!-- configuration-boot-redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>

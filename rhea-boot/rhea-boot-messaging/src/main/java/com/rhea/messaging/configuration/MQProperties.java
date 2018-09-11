@@ -1,14 +1,14 @@
-package com.rhea.messaging.spring;
+package com.rhea.messaging.configuration;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author 05061
+ * @author 050618
  */
 @Data
-@ConfigurationProperties(prefix = "rhea.messaging")
-public class MessagingProperties {
+@ConfigurationProperties(prefix = "rhea.mq")
+public class MQProperties {
     private String serverUrl;
     private String producerGroup;
     private String consumerGroup;
