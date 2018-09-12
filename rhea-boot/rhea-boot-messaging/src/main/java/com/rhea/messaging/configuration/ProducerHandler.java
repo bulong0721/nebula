@@ -18,8 +18,8 @@ public class ProducerHandler implements InvocationHandler, MQProducer<Serializab
     private final Producer producer;
 
     public ProducerHandler(ProducerConfig config, Producer producer) {
-        this.config = config;
         this.producer = producer;
+        this.config = config;
     }
 
     Message buildMessage(Serializable data, Properties properties) {

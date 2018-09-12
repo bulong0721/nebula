@@ -1,0 +1,4 @@
+rhea:
+  schedule:
+    zkServer: localhost:2181
+    namespace: elastic

@@ -4,17 +4,18 @@ import com.rhea.messaging.annotation.Consumer;
 import com.rhea.messaging.annotation.Producer;
 import com.rhea.messaging.api.MQConsumer;
 import com.rhea.messaging.api.MQProducer;
+import io.openmessaging.MessagingAccessPoint;
+import io.openmessaging.OMS;
 import lombok.Data;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
-import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.ScannedGenericBeanDefinition;
 import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.core.type.MethodMetadata;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
@@ -24,14 +25,16 @@ import org.springframework.core.type.filter.TypeFilter;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Set;
 
 /**
  * @author 050618
  */
-@Data
 public class ClassPathMQScanner extends ClassPathBeanDefinitionScanner {
-    private boolean consumeOn = true;
+    @Setter
+    private boolean consumeOn = false;
+    @Setter
     private boolean produceOn = true;
 
     public ClassPathMQScanner(BeanDefinitionRegistry registry) {
@@ -96,25 +99,37 @@ public class ClassPathMQScanner extends ClassPathBeanDefinitionScanner {
             AnnotationMetadata metadata = definition.getMetadata();
             if (metadata.hasAnnotation(Producer.class.getName())) {
                 String className = definition.getBeanClassName();
-                ProducerConfig producerConfig = toProducerConfig(metadata.getAnnotatedMethods(Producer.class.getName()));
+                ProducerConfig producerConfig = toProducerConfig(metadata.getAnnotationAttributes(Producer.class.getName()));
+                definition.getConstructorArgumentValues().addGenericArgumentValue(className);
                 definition.setBeanClass(ProducerFactoryBean.class);
+                definition.getPropertyValues().add("producer", buildAccessPoint(producerConfig).createProducer());
                 definition.getPropertyValues().add("producerConfig", producerConfig);
-//                definition.getPropertyValues().add("producerClass", producerClass);
                 definition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
             } else if (metadata.hasAnnotation(Consumer.class.getName())) {
-
+                ConsumerConfig consumerConfig = toConsumerConfig(metadata.getAnnotationAttributes(Consumer.class.getName()));
+                definition.getPropertyValues().add("accessPoint", buildAccessPoint(consumerConfig));
+                definition.getPropertyValues().add("consumerConfig", consumerConfig);
             }
         }
     }
 
-    ProducerConfig toProducerConfig(Set<MethodMetadata> metadataSet) {
+    private ProducerConfig toProducerConfig(Map<String, Object> metadataSet) {
         ProducerConfig config = new ProducerConfig();
         return config;
     }
 
+    private ConsumerConfig toConsumerConfig(Map<String, Object> metadataSet) {
+        ConsumerConfig config = new ConsumerConfig();
+        return config;
+    }
+
+    private MessagingAccessPoint buildAccessPoint(TopicConfig topicConfig) {
+        return OMS.getMessagingAccessPoint(topicConfig.getServerUrl());
+    }
+
     @Override
     protected boolean isCandidateComponent(AnnotatedBeanDefinition beanDefinition) {
-        return beanDefinition.getMetadata().isInterface() && beanDefinition.getMetadata().isIndependent();
+        return beanDefinition.getMetadata().isIndependent();
     }
 
     @Override
@@ -142,7 +157,6 @@ public class ClassPathMQScanner extends ClassPathBeanDefinitionScanner {
         public boolean match(MetadataReader metadataReader, MetadataReaderFactory metadataReaderFactory) throws IOException {
             boolean result = annotationTypeFilter.match(metadataReader, metadataReaderFactory)
                     && assignableTypeFilter.match(metadataReader, metadataReaderFactory);
-            System.out.println(metadataReader.getResource().toString() + result);
             return result;
         }
     }

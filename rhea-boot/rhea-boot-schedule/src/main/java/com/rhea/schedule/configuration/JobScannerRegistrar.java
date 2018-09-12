@@ -1,7 +1,6 @@
-package com.rhea.messaging.configuration;
+package com.rhea.schedule.configuration;
 
-import com.rhea.messaging.annotation.EnableMQ;
-import lombok.extern.slf4j.Slf4j;
+import com.rhea.schedule.annotation.EnableSchedule;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.ResourceLoaderAware;
@@ -18,7 +17,7 @@ import java.util.List;
 /**
  * @author 050618
  */
-public class MQScannerRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
+public class JobScannerRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
     private ResourceLoader resourceLoader;
     private Environment environment;
 
@@ -34,8 +33,8 @@ public class MQScannerRegistrar implements ImportBeanDefinitionRegistrar, Resour
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-        AnnotationAttributes attributes = AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(EnableMQ.class.getName()));
-        ClassPathMQScanner scanner = new ClassPathMQScanner(registry);
+        AnnotationAttributes attributes = AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(EnableSchedule.class.getName()));
+        ClassPathJobScanner scanner = new ClassPathJobScanner(registry);
 
         if (resourceLoader != null) {
             scanner.setResourceLoader(resourceLoader);
@@ -47,9 +46,6 @@ public class MQScannerRegistrar implements ImportBeanDefinitionRegistrar, Resour
                 basePackages.add(pkg);
             }
         }
-
-        scanner.setProduceOn(attributes.getBoolean("produceOn"));
-        scanner.setConsumeOn(attributes.getBoolean("consumeOn"));
 
         scanner.registerFilters();
         scanner.doScan(StringUtils.toStringArray(basePackages));

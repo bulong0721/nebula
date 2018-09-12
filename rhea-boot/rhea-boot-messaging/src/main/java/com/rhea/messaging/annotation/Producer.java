@@ -1,7 +1,5 @@
 package com.rhea.messaging.annotation;
 
-import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 import java.lang.annotation.*;
 

@@ -12,9 +12,13 @@ import java.lang.reflect.Proxy;
 @Data
 public class ProducerFactoryBean implements FactoryBean {
     private ProducerConfig producerConfig;
-    private Class<?> producerClass;
+    private final Class<?> producerClass;
     private Producer producer;
     private Object instance;
+
+    public ProducerFactoryBean(Class<?> producerClass) {
+        this.producerClass = producerClass;
+    }
 
     @Override
     public Object getObject() throws Exception {

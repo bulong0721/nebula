@@ -6,5 +6,5 @@ import lombok.Data;
  * @author 050618
  */
 @Data
-public class ProducerConfig {
+public class ProducerConfig extends TopicConfig {
 }

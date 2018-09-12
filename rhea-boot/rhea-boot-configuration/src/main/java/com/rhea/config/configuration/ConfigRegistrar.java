@@ -1,4 +1,4 @@
-package com.rhea.config.autoconfigure;
+package com.rhea.config.configuration;
 
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
