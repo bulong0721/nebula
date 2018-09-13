@@ -15,6 +15,7 @@ import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.ScannedGenericBeanDefinition;
+import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
@@ -41,6 +42,9 @@ public class ClassPathMQScanner extends ClassPathBeanDefinitionScanner {
         super(registry);
     }
 
+    /**
+     * 注册包扫描过滤器
+     */
     public void registerFilters() {
         boolean acceptAllInterfaces = true;
         if (produceOn) {
@@ -114,12 +118,23 @@ public class ClassPathMQScanner extends ClassPathBeanDefinitionScanner {
     }
 
     private ProducerConfig toProducerConfig(Map<String, Object> metadataSet) {
+        AnnotationAttributes attributes = AnnotationAttributes.fromMap(metadataSet);
         ProducerConfig config = new ProducerConfig();
+        config.setServerUrl(attributes.getString("serverUrl"));
+        config.setGroup(attributes.getString("group"));
+        config.setTopic(attributes.getString("topic"));
         return config;
     }
 
     private ConsumerConfig toConsumerConfig(Map<String, Object> metadataSet) {
+        AnnotationAttributes attributes = AnnotationAttributes.fromMap(metadataSet);
         ConsumerConfig config = new ConsumerConfig();
+        config.setThreadMin(attributes.getNumber("threadMin"));
+        config.setThreadMax(attributes.getNumber("threadMax"));
+        config.setTag(attributes.getString("tag"));
+        config.setServerUrl(attributes.getString("serverUrl"));
+        config.setGroup(attributes.getString("group"));
+        config.setTopic(attributes.getString("topic"));
         return config;
     }
 

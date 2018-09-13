@@ -10,6 +10,7 @@ import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.ScannedGenericBeanDefinition;
+import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
@@ -86,6 +87,7 @@ public class ClassPathJobScanner extends ClassPathBeanDefinitionScanner {
                     logger.debug("Enabling autowire by type for MapperFactoryBean with name '" + holder.getBeanName() + "'.");
                 }
             }
+
             AnnotationMetadata metadata = definition.getMetadata();
             if (metadata.hasAnnotation(Schedule.class.getName())) {
                 AbstractBeanDefinition scheduler = definition.cloneBeanDefinition();
@@ -100,7 +102,14 @@ public class ClassPathJobScanner extends ClassPathBeanDefinitionScanner {
     }
 
     private ScheduleConfig toScheduleConfig(Map<String, Object> metadataSet) {
+        AnnotationAttributes attributes = AnnotationAttributes.fromMap(metadataSet);
         ScheduleConfig config = new ScheduleConfig();
+        config.setName(attributes.getString("name"));
+        config.setDescription(attributes.getString("description"));
+        config.setCron(attributes.getString("cron"));
+        config.setShardingCount(attributes.getNumber("shardingCount"));
+        config.setFailover(attributes.getBoolean("failover"));
+        config.setMisfire(attributes.getBoolean("misfire"));
         return config;
     }
 

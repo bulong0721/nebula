@@ -10,8 +10,10 @@ import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;
 import com.dangdang.ddframe.job.config.script.ScriptJobConfiguration;
 import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
 import com.dangdang.ddframe.job.lite.api.JobScheduler;
+import com.dangdang.ddframe.job.lite.api.listener.ElasticJobListener;
 import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
 import com.dangdang.ddframe.job.reg.base.CoordinatorRegistryCenter;
+import com.google.common.base.Optional;
 import lombok.Setter;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,7 @@ public class ElasticScheduler implements InitializingBean {
                 .failover(scheduleConfig.isFailover())
                 .misfire(scheduleConfig.isMisfire())
                 .build();
-        new JobScheduler(registryCenter, buildJobConfig(jobConfig)).init();
+        new SpringJobScheduler(registryCenter, buildJobConfig(jobConfig), elasticJob).init();
     }
 
     LiteJobConfiguration buildJobConfig(JobCoreConfiguration jobConfig) {
@@ -50,5 +52,20 @@ public class ElasticScheduler implements InitializingBean {
             typeConfiguration = new ScriptJobConfiguration(jobConfig, jobClass);
         }
         return LiteJobConfiguration.newBuilder(typeConfiguration).build();
+    }
+
+
+    static class SpringJobScheduler extends JobScheduler {
+        private final ElasticJob elasticJob;
+
+        public SpringJobScheduler(CoordinatorRegistryCenter regCenter, LiteJobConfiguration liteJobConfig, ElasticJob elasticJob, ElasticJobListener... elasticJobListeners) {
+            super(regCenter, liteJobConfig, elasticJobListeners);
+            this.elasticJob = elasticJob;
+        }
+
+        @Override
+        protected Optional<ElasticJob> createElasticJobInstance() {
+            return Optional.of(elasticJob);
+        }
     }
 }

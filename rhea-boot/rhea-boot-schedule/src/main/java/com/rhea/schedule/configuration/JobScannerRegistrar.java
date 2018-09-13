@@ -11,6 +11,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.util.StringUtils;
 
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class JobScannerRegistrar implements ImportBeanDefinitionRegistrar, Resou
         AnnotationAttributes attributes = AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(EnableSchedule.class.getName()));
         ClassPathJobScanner scanner = new ClassPathJobScanner(registry);
 
+        Class<? extends Annotation> aClass = attributes.annotationType();
         if (resourceLoader != null) {
             scanner.setResourceLoader(resourceLoader);
         }

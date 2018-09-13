@@ -6,7 +6,7 @@ import com.rhea.schedule.annotation.Schedule;
 
 import java.util.List;
 
-@Schedule(cron = "0/10 * * * *")
+@Schedule(name = "batchJob2", cron = "0/5 * * * * ?")
 public class BatchJob implements DataflowJob<String> {
 
     @Override

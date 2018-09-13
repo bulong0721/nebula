@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Schedule {
-    String name() default  "";
+    String name();
 
     String description() default "";
 
