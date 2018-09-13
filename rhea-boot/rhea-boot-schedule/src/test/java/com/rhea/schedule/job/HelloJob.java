@@ -11,10 +11,6 @@ public class HelloJob implements SimpleJob {
     @Autowired
     private HelloService helloService;
 
-    public HelloJob() {
-        System.out.println("create hellojob");
-    }
-
     @Override
     public void execute(ShardingContext shardingContext) {
         helloService.sayHello("simple job");

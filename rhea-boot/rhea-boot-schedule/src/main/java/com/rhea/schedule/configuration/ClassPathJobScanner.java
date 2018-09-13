@@ -7,6 +7,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.ScannedGenericBeanDefinition;
@@ -90,9 +91,8 @@ public class ClassPathJobScanner extends ClassPathBeanDefinitionScanner {
 
             AnnotationMetadata metadata = definition.getMetadata();
             if (metadata.hasAnnotation(Schedule.class.getName())) {
-                AbstractBeanDefinition scheduler = definition.cloneBeanDefinition();
-                String beanName = definition.getBeanClassName() + "Scheduler";
-                scheduler.setBeanClass(ElasticScheduler.class);
+                BeanDefinition scheduler = BeanDefinitionBuilder.genericBeanDefinition(ElasticScheduler.class).getBeanDefinition();
+                String beanName = holder.getBeanName() + "Scheduler";
                 ScheduleConfig scheduleConfig = toScheduleConfig(metadata.getAnnotationAttributes(Schedule.class.getName()));
                 scheduler.getPropertyValues().addPropertyValue("scheduleConfig", scheduleConfig);
                 scheduler.getPropertyValues().addPropertyValue("elasticJob", new RuntimeBeanReference(holder.getBeanName()));
