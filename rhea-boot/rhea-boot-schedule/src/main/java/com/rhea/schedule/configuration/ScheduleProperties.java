@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "rhea.schedule")
 public class ScheduleProperties {
 
-    private String zkServer = "localhost:2181";
+    private String zkServer;
 
-    private String namespace = "elastic";
+    private String namespace;
 }

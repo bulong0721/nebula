@@ -1,6 +1,9 @@
 package com.rhea.config.configuration;
 
-import com.ctrip.framework.apollo.spring.annotation.ApolloAnnotationProcessor;
+import com.ctrip.framework.apollo.spring.annotation.ApolloJsonValueProcessor;
+import com.ctrip.framework.apollo.spring.annotation.SpringValueProcessor;
+import com.ctrip.framework.apollo.spring.config.PropertySourcesProcessor;
+import com.ctrip.framework.apollo.spring.property.SpringValueDefinitionProcessor;
 import com.ctrip.framework.apollo.spring.util.BeanRegistrationUtil;
 import com.google.common.collect.Lists;
 import com.rhea.config.annotation.EnableConfig;
@@ -13,16 +16,21 @@ import org.springframework.core.type.AnnotationMetadata;
 /**
  * @author 050618
  */
-public class ConfigCenterRegistrar implements ImportBeanDefinitionRegistrar {
+public class DynamicConfigRegistrar implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         AnnotationAttributes attributes = AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(EnableConfig.class.getName()));
 
         String[] namespaces = attributes.getStringArray("value");
-        int order = ((Integer)attributes.getNumber("order")).intValue();
-//        PropertySourcesProcessor.addNamespaces(Lists.newArrayList(namespaces), order);
+        int order = attributes.getNumber("order");
+        PropertySourcesProcessor.addNamespaces(Lists.newArrayList(namespaces), order);
+
         BeanRegistrationUtil.registerBeanDefinitionIfNotExists(registry, PropertySourcesPlaceholderConfigurer.class.getName(), PropertySourcesPlaceholderConfigurer.class);
         BeanRegistrationUtil.registerBeanDefinitionIfNotExists(registry, PropertySourcesProcessor.class.getName(), PropertySourcesProcessor.class);
-        BeanRegistrationUtil.registerBeanDefinitionIfNotExists(registry, ApolloAnnotationProcessor.class.getName(), ApolloAnnotationProcessor.class);
+        BeanRegistrationUtil.registerBeanDefinitionIfNotExists(registry, AnnotationProcessorAdapter.class.getName(), AnnotationProcessorAdapter.class);
+
+        BeanRegistrationUtil.registerBeanDefinitionIfNotExists(registry, SpringValueProcessor.class.getName(), SpringValueProcessor.class);
+        BeanRegistrationUtil.registerBeanDefinitionIfNotExists(registry, SpringValueDefinitionProcessor.class.getName(), SpringValueDefinitionProcessor.class);
+        BeanRegistrationUtil.registerBeanDefinitionIfNotExists(registry, ApolloJsonValueProcessor.class.getName(), ApolloJsonValueProcessor.class);
     }
 }

@@ -1,8 +1,7 @@
-package com.rhea.schedule;
+package com.rhea.config;
 
-import com.rhea.schedule.annotation.EnableSchedule;
-import com.rhea.schedule.job.HelloJob;
-import com.rhea.schedule.service.HelloService;
+import com.rhea.config.annotation.EnableConfig;
+import com.rhea.config.properties.SampleProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -10,29 +9,26 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@EnableSchedule
+import java.util.concurrent.CountDownLatch;
+
+@EnableConfig
 @SpringBootApplication
-public class ScheduleApplication {
+public class ConfigApplication {
 
     public static void main(String[] args) throws InterruptedException {
-        SpringApplication.run(ScheduleApplication.class);
+        CountDownLatch latch = new CountDownLatch(1);
+        SpringApplication.run(ConfigApplication.class);
     }
 
     @Bean
     ApplicationRunner applicationRunner() {
         return new ApplicationRunner() {
             @Autowired
-            HelloService helloService;
-
-            @Autowired
-            HelloJob helloJob;
+            SampleProperties properties;
 
             @Override
             public void run(ApplicationArguments applicationArguments) throws Exception {
-                System.out.println("Application start");
-                helloService.sayHello("ApplicationRunner");
-                System.out.println(helloJob.toString());
-                Thread.sleep(1000000);
+                System.out.println(properties.getCommandTimeout());
             }
         };
     }
