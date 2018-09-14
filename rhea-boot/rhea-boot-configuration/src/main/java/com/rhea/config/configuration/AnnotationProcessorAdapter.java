@@ -8,7 +8,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import com.rhea.config.annotation.DynamicConfig;
 import com.rhea.config.annotation.ConfigChangeListener;
-import com.rhea.config.api.DyanmicConfigChangeEvent;
+import com.rhea.config.api.ConfigChangeObject;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.ReflectionUtils;
 
@@ -47,7 +47,7 @@ public class AnnotationProcessorAdapter extends ApolloProcessor {
         Preconditions.checkArgument(parameterTypes.length == 1,
                 "Invalid number of parameters: %s for method: %s, should be 1", parameterTypes.length,
                 method);
-        Preconditions.checkArgument(DyanmicConfigChangeEvent.class.isAssignableFrom(parameterTypes[0]),
+        Preconditions.checkArgument(ConfigChangeObject.class.isAssignableFrom(parameterTypes[0]),
                 "Invalid parameter type: %s for method: %s, should be ConfigChangeEvent", parameterTypes[0],
                 method);
 
@@ -58,7 +58,7 @@ public class AnnotationProcessorAdapter extends ApolloProcessor {
         com.ctrip.framework.apollo.ConfigChangeListener configChangeListener = new com.ctrip.framework.apollo.ConfigChangeListener() {
             @Override
             public void onChange(ConfigChangeEvent changeEvent) {
-                DyanmicConfigChangeEvent event = new DyanmicConfigChangeEvent(changeEvent);
+                ConfigChangeObject event = new ConfigChangeObject(changeEvent);
                 ReflectionUtils.invokeMethod(method, bean, event);
             }
         };

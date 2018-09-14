@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Set;
 
 @Data
-public class DyanmicConfigChangeEvent {
+public class ConfigChangeObject {
     private final ConfigChangeEvent changeEvent;
 
     public Set<String> changedKeys() {

@@ -1,7 +1,7 @@
 package com.rhea.config.properties;
 
 import com.rhea.config.annotation.ConfigChangeListener;
-import com.rhea.config.api.DyanmicConfigChangeEvent;
+import com.rhea.config.api.ConfigChangeObject;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ public class SampleProperties {
     private int commandTimeout;
 
     @ConfigChangeListener
-    public void onChange(DyanmicConfigChangeEvent changeEvent) {
+    public void onChange(ConfigChangeObject changeEvent) {
         for (String changedKey : changeEvent.changedKeys()) {
             if (changedKey.startsWith("redis.cache.commandTimeout")) {
                 String newValue = changeEvent.getChange(changedKey).getNewValue();
