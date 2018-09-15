@@ -1,4 +1,4 @@
-package com.rhea.config.configuration;
+package com.rhea.common.configuration;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.ConfigService;
@@ -6,9 +6,9 @@ import com.ctrip.framework.apollo.model.ConfigChangeEvent;
 import com.ctrip.framework.apollo.spring.annotation.ApolloProcessor;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
-import com.rhea.config.annotation.DynamicConfig;
-import com.rhea.config.annotation.ConfigChangeListener;
-import com.rhea.config.api.ConfigChangeObject;
+import com.rhea.common.annotation.DynamicConfig;
+import com.rhea.common.annotation.ConfigChangeListener;
+import com.rhea.common.api.ConfigChangeObject;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.ReflectionUtils;
 

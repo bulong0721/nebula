@@ -27,7 +27,10 @@
         <module name="rhea-base-core" />
         <module name="rhea-base-service" />
         <module name="rhea-base-web" />
+        <module name="rhea-boot-framework" />
         <module name="rhea-boot-messaging" />
+        <module name="rhea-boot-remoting" />
+        <module name="rhea-boot-schedule" />
         <module name="rhea-boot-sharding-jdbc" />
         <module name="rhea-boot-sofa" />
         <module name="rhea-generator" />
@@ -50,7 +53,12 @@
       <module name="rhea-base-sharding-jdbc" target="1.8" />
       <module name="rhea-base-web" target="1.8" />
       <module name="rhea-boot" target="1.8" />
+      <module name="rhea-boot-configuration" target="1.8" />
+      <module name="rhea-boot-framework" target="1.8" />
       <module name="rhea-boot-messaging" target="1.8" />
+      <module name="rhea-boot-remoting" target="1.8" />
+      <module name="rhea-boot-rpc-framework" target="1.8" />
+      <module name="rhea-boot-schedule" target="1.8" />
       <module name="rhea-boot-sharding-jdbc" target="1.8" />
       <module name="rhea-boot-sofa" target="1.8" />
       <module name="rhea-generator" target="1.8" />
@@ -67,5 +75,20 @@
       <module name="rhea-upms-skeleton" target="1.8" />
       <module name="rhea-upms-web" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="rhea-base-core" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-base-service" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-base-web" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-boot-configuration" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-boot-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-boot-messaging" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-boot-remoting" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-boot-rpc-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-boot-schedule" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-boot-sharding-jdbc" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-generator" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+    </option>
   </component>
 </project>

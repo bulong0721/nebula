@@ -1,7 +1,8 @@
-package com.rhea.config.annotation;
+package com.rhea.common.annotation;
 
 import com.ctrip.framework.apollo.core.ConfigConsts;
-import com.rhea.config.configuration.DynamicConfigRegistrar;
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
+import com.rhea.common.configuration.DynamicConfigRegistrar;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.Ordered;
 

@@ -1,4 +1,4 @@
-package com.rhea.config.api;
+package com.rhea.common.api;
 
 import com.ctrip.framework.apollo.model.ConfigChange;
 import com.ctrip.framework.apollo.model.ConfigChangeEvent;

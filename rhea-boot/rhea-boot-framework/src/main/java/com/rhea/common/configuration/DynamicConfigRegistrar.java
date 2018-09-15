@@ -1,4 +1,4 @@
-package com.rhea.config.configuration;
+package com.rhea.common.configuration;
 
 import com.ctrip.framework.apollo.spring.annotation.ApolloJsonValueProcessor;
 import com.ctrip.framework.apollo.spring.annotation.SpringValueProcessor;
@@ -6,7 +6,7 @@ import com.ctrip.framework.apollo.spring.config.PropertySourcesProcessor;
 import com.ctrip.framework.apollo.spring.property.SpringValueDefinitionProcessor;
 import com.ctrip.framework.apollo.spring.util.BeanRegistrationUtil;
 import com.google.common.collect.Lists;
-import com.rhea.config.annotation.EnableConfig;
+import com.rhea.common.annotation.EnableConfig;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;

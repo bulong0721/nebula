@@ -1,7 +1,7 @@
-package com.rhea.config.properties;
+package com.rhea.common.properties;
 
-import com.rhea.config.annotation.ConfigChangeListener;
-import com.rhea.config.api.ConfigChangeObject;
+import com.rhea.common.annotation.ConfigChangeListener;
+import com.rhea.common.api.ConfigChangeObject;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

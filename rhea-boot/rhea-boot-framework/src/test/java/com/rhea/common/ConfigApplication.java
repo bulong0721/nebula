@@ -1,7 +1,7 @@
-package com.rhea.config;
+package com.rhea.common;
 
-import com.rhea.config.annotation.EnableConfig;
-import com.rhea.config.properties.SampleProperties;
+import com.rhea.common.annotation.EnableConfig;
+import com.rhea.common.properties.SampleProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

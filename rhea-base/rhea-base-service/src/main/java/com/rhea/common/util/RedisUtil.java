@@ -61,12 +61,12 @@
 //     */
 //    private static void initialPool() {
 //        try {
-//            JedisPoolConfig config = new JedisPoolConfig();
-//            config.setMaxTotal(MAX_ACTIVE);
-//            config.setMaxIdle(MAX_IDLE);
-//            config.setMaxWaitMillis(MAX_WAIT);
-//            config.setTestOnBorrow(TEST_ON_BORROW);
-//            jedisPool = new JedisPool(config, IP, PORT, TIMEOUT);
+//            JedisPoolConfig common = new JedisPoolConfig();
+//            common.setMaxTotal(MAX_ACTIVE);
+//            common.setMaxIdle(MAX_IDLE);
+//            common.setMaxWaitMillis(MAX_WAIT);
+//            common.setTestOnBorrow(TEST_ON_BORROW);
+//            jedisPool = new JedisPool(common, IP, PORT, TIMEOUT);
 //        } catch (Exception e) {
 //            LOGGER.error("First create JedisPool error : " + e);
 //        }

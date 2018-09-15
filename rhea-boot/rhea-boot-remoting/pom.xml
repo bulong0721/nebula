@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.rhea</groupId>
-    <artifactId>rhea-boot-rpc-framework</artifactId>
+    <artifactId>rhea-boot-remoting</artifactId>
     <version>0.7.0</version>
 
     <dependencies>
@@ -36,6 +36,11 @@
             <groupId>com.alipay.sofa</groupId>
             <artifactId>runtime-sofa-boot-starter</artifactId>
             <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-dubbo-adapter</artifactId>
+            <version>0.1.1</version>
         </dependency>
     </dependencies>
 </project>

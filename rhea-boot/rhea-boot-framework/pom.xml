@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.rhea</groupId>
-    <artifactId>rhea-boot-configuration</artifactId>
+    <artifactId>rhea-boot-framework</artifactId>
     <version>0.7.0</version>
 
     <dependencies>

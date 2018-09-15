@@ -1,4 +1,4 @@
-package com.rhea.config.annotation;
+package com.rhea.common.annotation;
 
 import com.ctrip.framework.apollo.core.ConfigConsts;
 

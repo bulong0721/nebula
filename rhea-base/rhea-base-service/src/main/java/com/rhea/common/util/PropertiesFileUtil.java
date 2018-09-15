@@ -19,7 +19,7 @@ public class PropertiesFileUtil {
     // 资源文件
     private ResourceBundle resourceBundle = null;
     // 默认资源文件名称
-    private static final String NAME = "config";
+    private static final String NAME = "common";
     // 缓存时间
     private static final Integer TIME_OUT = 60 * 1000;
 

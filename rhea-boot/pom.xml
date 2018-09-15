@@ -18,9 +18,9 @@
     <modules>
         <module>rhea-boot-sharding-jdbc</module>
         <module>rhea-boot-messaging</module>
-        <module>rhea-boot-rpc-framework</module>
         <module>rhea-boot-schedule</module>
-        <module>rhea-boot-configuration</module>
+        <module>rhea-boot-framework</module>
+        <module>rhea-boot-remoting</module>
     </modules>
 
     <dependencies>
