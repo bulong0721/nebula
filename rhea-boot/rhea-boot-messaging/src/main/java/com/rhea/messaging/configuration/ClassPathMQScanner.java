@@ -9,10 +9,12 @@ import io.openmessaging.OMS;
 import lombok.Data;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.ScannedGenericBeanDefinition;
 import org.springframework.core.annotation.AnnotationAttributes;
@@ -106,12 +108,10 @@ public class ClassPathMQScanner extends ClassPathBeanDefinitionScanner {
                 ProducerConfig producerConfig = toProducerConfig(metadata.getAnnotationAttributes(Producer.class.getName()));
                 definition.getConstructorArgumentValues().addGenericArgumentValue(className);
                 definition.setBeanClass(ProducerFactoryBean.class);
-                definition.getPropertyValues().add("producer", buildAccessPoint(producerConfig).createProducer());
                 definition.getPropertyValues().add("producerConfig", producerConfig);
                 definition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
             } else if (metadata.hasAnnotation(Consumer.class.getName())) {
                 ConsumerConfig consumerConfig = toConsumerConfig(metadata.getAnnotationAttributes(Consumer.class.getName()));
-                definition.getPropertyValues().add("accessPoint", buildAccessPoint(consumerConfig));
                 definition.getPropertyValues().add("consumerConfig", consumerConfig);
             }
         }
@@ -136,10 +136,6 @@ public class ClassPathMQScanner extends ClassPathBeanDefinitionScanner {
         config.setGroup(attributes.getString("group"));
         config.setTopic(attributes.getString("topic"));
         return config;
-    }
-
-    private MessagingAccessPoint buildAccessPoint(TopicConfig topicConfig) {
-        return OMS.getMessagingAccessPoint(topicConfig.getServerUrl());
     }
 
     @Override
