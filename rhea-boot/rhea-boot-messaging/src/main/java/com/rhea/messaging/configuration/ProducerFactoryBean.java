@@ -31,6 +31,7 @@ public class ProducerFactoryBean implements FactoryBean {
             Producer producer = buildAccessPoint(producerConfig).createProducer();
             ProducerHandler producerHandler = new ProducerHandler(producerConfig, producer);
             instance = Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{producerClass}, producerHandler);
+            producer.startup();
         }
         return instance;
     }

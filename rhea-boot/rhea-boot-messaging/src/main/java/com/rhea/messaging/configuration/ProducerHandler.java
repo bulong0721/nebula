@@ -22,11 +22,11 @@ public class ProducerHandler implements InvocationHandler, MQProducer<Serializab
         this.config = config;
     }
 
-    Message buildMessage(Serializable data, Properties properties) {
-        return null;
+    private Message buildMessage(Serializable data, Properties properties) {
+        return this.producer.createBytesMessage(config.getTopic(), "hello".getBytes());
     }
 
-    KeyValue toKeyValue(Properties properties) {
+    private KeyValue toKeyValue(Properties properties) {
         KeyValue keyValue = new DefaultKeyValue();
         properties.forEach((key, value) -> {
             keyValue.put((String) key, (String) value);

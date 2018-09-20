@@ -7,7 +7,7 @@ import com.rhea.messaging.model.Order;
 import com.rhea.messaging.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Consumer(topic = "order")
+@Consumer(topic = "TopicTest")
 public class BillingConsumer extends MQConsumer<Order> {
 
     @Autowired

@@ -28,11 +28,12 @@ public abstract class MQConsumer<T extends Serializable> implements MessageListe
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        KeyValue keyValue = OMS.newKeyValue();
-        keyValue.put(OMSBuiltinKeys.CONSUMER_ID, "TestGroup");
         mqProperties.stuffConfig(consumerConfig);
+        KeyValue keyValue = OMS.newKeyValue();
+        keyValue.put(OMSBuiltinKeys.CONSUMER_ID, consumerConfig.getGroup());
         MessagingAccessPoint accessPoint = buildAccessPoint(consumerConfig);
         PushConsumer pushConsumer = accessPoint.createPushConsumer(keyValue);
+        pushConsumer.attachQueue(consumerConfig.getTopic(), this);
     }
 
     private MessagingAccessPoint buildAccessPoint(TopicConfig topicConfig) {

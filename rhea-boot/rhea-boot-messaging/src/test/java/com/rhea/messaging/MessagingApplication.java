@@ -4,6 +4,7 @@ import com.rhea.messaging.annotation.EnableMQ;
 import com.rhea.messaging.consumer.BillingConsumer;
 import com.rhea.messaging.model.Order;
 import com.rhea.messaging.producer.OrderProducer;
+import io.openmessaging.producer.SendResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -15,8 +16,9 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class MessagingApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(MessagingApplication.class);
+        Thread.sleep(5000000L);
     }
 
     @Bean
@@ -30,7 +32,8 @@ public class MessagingApplication {
             @Override
             public void run(ApplicationArguments applicationArguments) throws Exception {
                 Order order = new Order();
-                orderProducer.sendOneway(order);
+                SendResult result = orderProducer.send(order);
+                System.out.println(result);
             }
         };
     }
