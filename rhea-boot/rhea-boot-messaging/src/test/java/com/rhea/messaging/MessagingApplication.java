@@ -1,7 +1,6 @@
 package com.rhea.messaging;
 
 import com.rhea.messaging.annotation.EnableMQ;
-import com.rhea.messaging.consumer.BillingConsumer;
 import com.rhea.messaging.model.Order;
 import com.rhea.messaging.producer.OrderProducer;
 import io.openmessaging.producer.SendResult;
@@ -26,8 +25,6 @@ public class MessagingApplication {
         return new ApplicationRunner() {
             @Autowired
             private OrderProducer orderProducer;
-            @Autowired
-            private BillingConsumer billingConsumer;
 
             @Override
             public void run(ApplicationArguments applicationArguments) throws Exception {

@@ -1,5 +1,7 @@
 package com.rhea.messaging.configuration;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.reflect.AbstractInvocationHandler;
 import com.rhea.messaging.api.MQProducer;
 import io.openmessaging.Future;
 import io.openmessaging.KeyValue;
@@ -13,7 +15,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Properties;
 
-public class ProducerHandler implements InvocationHandler, MQProducer<Serializable> {
+/**
+ * @author 050618
+ */
+public class ProducerHandler extends AbstractInvocationHandler implements MQProducer<Serializable> {
     private final ProducerConfig config;
     private final Producer producer;
 
@@ -22,8 +27,14 @@ public class ProducerHandler implements InvocationHandler, MQProducer<Serializab
         this.config = config;
     }
 
+    /**
+     * 构建MQ消息，暂时用FastJson写死
+     * @param data
+     * @param properties
+     * @return
+     */
     private Message buildMessage(Serializable data, Properties properties) {
-        return this.producer.createBytesMessage(config.getTopic(), "hello".getBytes());
+        return this.producer.createBytesMessage(config.getTopic(), JSON.toJSONBytes(data));
     }
 
     private KeyValue toKeyValue(Properties properties) {
@@ -74,7 +85,7 @@ public class ProducerHandler implements InvocationHandler, MQProducer<Serializab
     }
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    protected Object handleInvocation(Object proxy, Method method, Object[] args) throws Throwable {
         String methodName = method.getName();
         if ("send".equals(methodName)) {
             return args.length == 1 ? send((Serializable) args[0]) : send((Serializable) args[0], (Properties) args[1]);
