@@ -10,6 +10,6 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Documented
 @Inherited
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
+@SpringBootApplication(exclude = {/*DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class*/})
 public @interface EnableFramework {
 }

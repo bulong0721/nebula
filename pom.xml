@@ -14,7 +14,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-        <sharding-sphere.version>3.0.0.M1</sharding-sphere.version>
+        <sharding-sphere.version>3.0.0.M3</sharding-sphere.version>
         <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
         <mybatis.version>3.4.6</mybatis.version>
         <mybatis-pagehelper.version>5.1.4</mybatis-pagehelper.version>

@@ -10,5 +10,5 @@ import java.lang.annotation.*;
 @Documented
 @Import({RemoteConfiguration.class})
 public @interface EnableRemote {
-
+    boolean tolerate() default false;
 }
