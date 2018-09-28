@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-@EnableAutoConfiguration(exclude = {SpringBootConfiguration.class})
+//@EnableAutoConfiguration(exclude = {SpringBootConfiguration.class})
 @Import({ShardConfiguration.class})
 public @interface EnableSharding {
 
