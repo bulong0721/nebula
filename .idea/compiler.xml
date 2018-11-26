@@ -24,20 +24,28 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
-        <module name="rhea-base-core" />
-        <module name="rhea-base-service" />
-        <module name="rhea-base-web" />
-        <module name="rhea-boot-framework" />
-        <module name="rhea-boot-messaging" />
-        <module name="rhea-boot-remoting" />
-        <module name="rhea-boot-schedule" />
-        <module name="rhea-boot-sharding-jdbc" />
         <module name="rhea-boot-sofa" />
         <module name="rhea-generator" />
+        <module name="rhea-kernel-common" />
+        <module name="rhea-kernel-core" />
+        <module name="rhea-kernel-dao" />
+        <module name="rhea-kernel-service" />
+        <module name="rhea-kernel-web" />
         <module name="rhea-order-api" />
         <module name="rhea-order-service" />
         <module name="rhea-order-skeleton" />
         <module name="rhea-order-web" />
+        <module name="rhea-starter-cache" />
+        <module name="rhea-starter-elasticjob" />
+        <module name="rhea-starter-excel" />
+        <module name="rhea-starter-framework" />
+        <module name="rhea-starter-mq" />
+        <module name="rhea-starter-sharding" />
+        <module name="rhea-starter-socketio" />
+        <module name="rhea-starter-sofa" />
+        <module name="rhea-starter-springcloud" />
+        <module name="rhea-starter-swagger" />
+        <module name="rhea-starter-tracing" />
         <module name="rhea-upms-api" />
         <module name="rhea-upms-service" />
         <module name="rhea-upms-skeleton" />
@@ -61,13 +69,33 @@
       <module name="rhea-boot-schedule" target="1.8" />
       <module name="rhea-boot-sharding-jdbc" target="1.8" />
       <module name="rhea-boot-sofa" target="1.8" />
+      <module name="rhea-dependencies" target="1.8" />
       <module name="rhea-generator" target="1.8" />
+      <module name="rhea-kernel" target="1.8" />
+      <module name="rhea-kernel-common" target="1.8" />
+      <module name="rhea-kernel-core" target="1.8" />
+      <module name="rhea-kernel-dao" target="1.8" />
+      <module name="rhea-kernel-service" target="1.8" />
+      <module name="rhea-kernel-web" target="1.8" />
       <module name="rhea-order" target="1.8" />
       <module name="rhea-order-api" target="1.8" />
       <module name="rhea-order-service" target="1.8" />
       <module name="rhea-order-skeleton" target="1.8" />
       <module name="rhea-order-web" target="1.8" />
       <module name="rhea-plugin" target="1.8" />
+      <module name="rhea-server" target="1.8" />
+      <module name="rhea-starter" target="1.8" />
+      <module name="rhea-starter-cache" target="1.8" />
+      <module name="rhea-starter-elasticjob" target="1.8" />
+      <module name="rhea-starter-excel" target="1.8" />
+      <module name="rhea-starter-framework" target="1.8" />
+      <module name="rhea-starter-mq" target="1.8" />
+      <module name="rhea-starter-sharding" target="1.8" />
+      <module name="rhea-starter-socketio" target="1.8" />
+      <module name="rhea-starter-sofa" target="1.8" />
+      <module name="rhea-starter-springcloud" target="1.8" />
+      <module name="rhea-starter-swagger" target="1.8" />
+      <module name="rhea-starter-tracing" target="1.8" />
       <module name="rhea-ui" target="1.8" />
       <module name="rhea-upms" target="1.8" />
       <module name="rhea-upms-api" target="1.8" />
@@ -88,7 +116,27 @@
       <module name="rhea-boot-rpc-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="rhea-boot-schedule" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="rhea-boot-sharding-jdbc" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-dependencies" options="" />
       <module name="rhea-generator" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-kernel" options="" />
+      <module name="rhea-kernel-common" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-kernel-core" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-kernel-dao" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-kernel-service" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-kernel-web" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-server" options="" />
+      <module name="rhea-starter" options="" />
+      <module name="rhea-starter-cache" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-elasticjob" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-excel" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-mq" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-sharding" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-socketio" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-sofa" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-springcloud" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-swagger" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-tracing" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
     </option>
   </component>
 </project>

@@ -1,5 +1,0 @@
-rhea:
-  mq:
-    serverUrl: oms:rocketmq://10.200.112.249:9876/us-east
-    producerGroup: test1
-    consumerGroup: test1
