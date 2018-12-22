@@ -1,8 +1,5 @@
 package com.rhea.common.util;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
@@ -57,7 +54,7 @@ public class AESUtil {
             //这里用Base64Encoder中会找不到包
             //解决办法：
             //在项目的Build path中先移除JRE System Library，再添加库JRE System Library，重新编译后就一切正常了。
-            String aesEncode = new String(new BASE64Encoder().encode(byteAES));
+            String aesEncode = Base64Util.encode(byteAES);
             //11.将字符串返回
             return aesEncode;
         } catch (NoSuchAlgorithmException e) {
@@ -104,7 +101,7 @@ public class AESUtil {
             //7.初始化密码器，第一个参数为加密(Encrypt_mode)或者解密(Decrypt_mode)操作，第二个参数为使用的KEY
             cipher.init(Cipher.DECRYPT_MODE, key);
             //8.将加密并编码后的内容解码成字节数组
-            byte[] byteContent = new BASE64Decoder().decodeBuffer(content);
+            byte[] byteContent = Base64Util.decode(content);
             /*
              * 解密
              */

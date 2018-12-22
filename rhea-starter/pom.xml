@@ -27,6 +27,7 @@
         <module>rhea-starter-springcloud</module>
         <module>rhea-starter-sharding</module>
         <module>rhea-starter-socketio</module>
+        <module>rhea-starter-stream</module>
     </modules>
 
     <dependencyManagement>

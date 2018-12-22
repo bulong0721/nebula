@@ -1,11 +1,14 @@
 package com.rhea.kernel.service;
 
+
+import com.rhea.kernel.entity.BaseEntity;
+
 import java.util.List;
 
 /**
  * BaseService接口
  */
-public interface BaseService<Entity, Example> {
+public interface BaseService<Entity extends BaseEntity, Example> {
 
     /**
      * 根据条件查询记录数量
@@ -37,7 +40,7 @@ public interface BaseService<Entity, Example> {
      * @param pk
      * @return
      */
-    int deleteByPK(Object pk);
+    boolean deleteByPK(Object pk);
 
     /**
      * 插入记录
@@ -45,7 +48,7 @@ public interface BaseService<Entity, Example> {
      * @param entity
      * @return
      */
-    int insert(Entity entity);
+    boolean insert(Entity entity);
 
     /**
      * 插入记录有效字段
@@ -53,7 +56,15 @@ public interface BaseService<Entity, Example> {
      * @param entity
      * @return
      */
-    int insertSelective(Entity entity);
+    boolean insertSelective(Entity entity);
+
+    /**
+     * 插入记录并更新主键
+     *
+     * @param entity
+     * @return
+     */
+    boolean insertUseGeneratedKeys(Entity entity);
 
     /**
      * 根据条件查询记录(最大只查询100条)
@@ -103,7 +114,7 @@ public interface BaseService<Entity, Example> {
      * @param entity
      * @return
      */
-    int updateByPKSelective(Entity entity);
+    boolean updateByPKSelective(Entity entity);
 
     /**
      * 根据主键更新记录
@@ -111,6 +122,21 @@ public interface BaseService<Entity, Example> {
      * @param entity
      * @return
      */
-    int updateByPK(Entity entity);
+    boolean updateByPK(Entity entity);
 
+    /**
+     * 创建或更新
+     *
+     * @param entity
+     * @return
+     */
+    boolean saveOrUpdate(Entity entity);
+
+    /**
+     * 创建或更新
+     *
+     * @param entity
+     * @return
+     */
+    boolean saveOrUpdateSelective(Entity entity);
 }

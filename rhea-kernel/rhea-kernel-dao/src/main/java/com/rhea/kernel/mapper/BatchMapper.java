@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 /**
  * @author xubulong
- * @version V1.0 created at: 2018/11/5
+ * @version V1.0
  */
 public interface BatchMapper<T> extends BaseInsertMapper<T>, BaseUpdateMapper<T>, BaseDeleteMapper<T> {
 

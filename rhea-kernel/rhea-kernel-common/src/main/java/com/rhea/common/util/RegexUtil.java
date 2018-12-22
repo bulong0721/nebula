@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * 描述: 正则表达式校验工具类，校验邮箱、身份证等
  * </pre>
  *
- * @author yimidida
+ * @author xubulong
  * @since 1.0.0
  */
 public final class RegexUtil {

@@ -44,6 +44,7 @@
         <module name="rhea-starter-socketio" />
         <module name="rhea-starter-sofa" />
         <module name="rhea-starter-springcloud" />
+        <module name="rhea-starter-stream" />
         <module name="rhea-starter-swagger" />
         <module name="rhea-starter-tracing" />
         <module name="rhea-upms-api" />
@@ -94,6 +95,7 @@
       <module name="rhea-starter-socketio" target="1.8" />
       <module name="rhea-starter-sofa" target="1.8" />
       <module name="rhea-starter-springcloud" target="1.8" />
+      <module name="rhea-starter-stream" target="1.8" />
       <module name="rhea-starter-swagger" target="1.8" />
       <module name="rhea-starter-tracing" target="1.8" />
       <module name="rhea-ui" target="1.8" />
@@ -135,6 +137,7 @@
       <module name="rhea-starter-socketio" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="rhea-starter-sofa" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="rhea-starter-springcloud" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="rhea-starter-stream" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="rhea-starter-swagger" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="rhea-starter-tracing" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
     </option>

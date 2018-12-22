@@ -6,7 +6,7 @@ import java.util.Collection;
 
 /**
  * @author xubulong
- * @version V1.0 created at: 2018/10/15
+ * @version V1.0
  */
 @Data
 public class PageResponse<T> extends ResponseEntity<Collection<T>> {

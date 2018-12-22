@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * @author xubulong
- * @version V1.0 created at: 2018/11/20
+ * @version V1.0
  */
 public class RequestUtil {
     /**

@@ -20,8 +20,20 @@
             <artifactId>rhea-kernel-dao</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.rhea</groupId>
+            <artifactId>rhea-kernel-common</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.baidu.unbiz</groupId>
-            <artifactId>fluent-validator-jsr303</artifactId>
+            <artifactId>fluent-validator-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
         </dependency>
     </dependencies>
 </project>

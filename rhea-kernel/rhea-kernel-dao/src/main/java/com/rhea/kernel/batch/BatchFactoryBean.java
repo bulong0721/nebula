@@ -9,7 +9,7 @@ import tk.mybatis.spring.mapper.MapperFactoryBean;
 
 /**
  * @author xubulong
- * @version V1.0 created at: 2018/11/5
+ * @version V1.0
  */
 public class BatchFactoryBean<T> extends MapperFactoryBean<T> {
     private SqlSession batchSession;

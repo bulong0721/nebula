@@ -1,22 +1,46 @@
 package com.rhea.kernel.service.impl;
 
+import com.baidu.unbiz.fluentvalidator.FluentValidator;
+import com.baidu.unbiz.fluentvalidator.jsr303.HibernateSupportedValidator;
+import com.baidu.unbiz.fluentvalidator.registry.Registry;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.rhea.kernel.entity.BaseEntity;
+import com.rhea.kernel.exchange.Pager;
 import com.rhea.kernel.mapper.BaseMapper;
 import com.rhea.kernel.service.PageableService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.validation.Validator;
 import java.util.List;
 
 /**
- * @author xubulong8
+ * @author 徐步龙
  */
 @Slf4j
-public abstract class BaseServiceImpl<Entity, Example> implements PageableService<Entity, Example> {
+public abstract class BaseServiceImpl<Entity extends BaseEntity, Example> implements PageableService<Entity, Example> {
 
     @Autowired
     protected BaseMapper<Entity> mapper;
+
+    @Autowired
+    private Registry springRegistry;
+
+    @Autowired
+    private Validator validator;
+
+    protected FluentValidator checkAll() {
+        return FluentValidator.checkAll()
+                .configure(springRegistry)
+                .failOver();
+    }
+
+    protected <T> FluentValidator checkAllWithJsr303(T entity) {
+        return checkAll()
+                .on(entity, new HibernateSupportedValidator<T>().setHiberanteValidator(validator))
+                .on(entity);
+    }
 
     @Override
     public int countByExample(Example example) {
@@ -34,18 +58,23 @@ public abstract class BaseServiceImpl<Entity, Example> implements PageableServic
     }
 
     @Override
-    public int deleteByPK(Object pk) {
-        return mapper.deleteByPrimaryKey(pk);
+    public boolean deleteByPK(Object pk) {
+        return mapper.deleteByPrimaryKey(pk) > 0;
     }
 
     @Override
-    public int insert(Entity entity) {
-        return mapper.insert(entity);
+    public boolean insert(Entity entity) {
+        return mapper.insert(entity) > 0;
     }
 
     @Override
-    public int insertSelective(Entity entity) {
-        return mapper.insertSelective(entity);
+    public boolean insertSelective(Entity entity) {
+        return mapper.insertSelective(entity) > 0;
+    }
+
+    @Override
+    public boolean insertUseGeneratedKeys(Entity entity) {
+        return mapper.insertUseGeneratedKeys(entity) > 0;
     }
 
     @Override
@@ -56,9 +85,14 @@ public abstract class BaseServiceImpl<Entity, Example> implements PageableServic
 
     @Override
     public PageInfo<Entity> pageByExample(Example example, int pageIndex, int pageSize) {
-        PageHelper.startPage(pageIndex * pageSize, pageSize);
+        PageHelper.startPage(pageIndex, pageSize);
         List<Entity> resultList = mapper.selectByExample(example);
         return new PageInfo<Entity>(resultList);
+    }
+
+    @Override
+    public PageInfo<Entity> pageByExample(Example example, Pager pager) {
+        return pageByExample(example, pager.getPageIndex(), pager.getPageSize());
     }
 
     @Override
@@ -82,12 +116,30 @@ public abstract class BaseServiceImpl<Entity, Example> implements PageableServic
     }
 
     @Override
-    public int updateByPKSelective(Entity entity) {
-        return mapper.updateByPrimaryKeySelective(entity);
+    public boolean updateByPKSelective(Entity entity) {
+        return mapper.updateByPrimaryKeySelective(entity) > 0;
     }
 
     @Override
-    public int updateByPK(Entity entity) {
-        return mapper.updateByPrimaryKey(entity);
+    public boolean updateByPK(Entity entity) {
+        return mapper.updateByPrimaryKey(entity) > 0;
+    }
+
+    @Override
+    public boolean saveOrUpdate(Entity entity) {
+        if (entity.isNew()) {
+            return insertUseGeneratedKeys(entity);
+        } else {
+            return updateByPK(entity);
+        }
+    }
+
+    @Override
+    public boolean saveOrUpdateSelective(Entity entity) {
+        if (entity.isNew()) {
+            return insertUseGeneratedKeys(entity);
+        } else {
+            return updateByPKSelective(entity);
+        }
     }
 }

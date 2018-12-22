@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.util.Set;
 
+/**
+ * @author 05061
+ */
 @Data
 public class ConfigChangeObject {
     private final ConfigChangeEvent changeEvent;
