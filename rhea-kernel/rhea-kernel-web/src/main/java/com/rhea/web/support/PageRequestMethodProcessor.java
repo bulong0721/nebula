@@ -40,6 +40,7 @@ public class PageRequestMethodProcessor extends AbstractMessageConverterMethodAr
         PageRequest<Object> page = (PageRequest<Object>) readWithMessageConverters(inputMessage, parameter, PageRequest.class);
         Type innerType = ((ParameterizedType)parameter.getGenericParameterType()).getActualTypeArguments()[0];
         inputMessage.reset();
+        
         Object data = readWithMessageConverters(inputMessage, parameter, innerType);
         page.setData(data);
         return page;
