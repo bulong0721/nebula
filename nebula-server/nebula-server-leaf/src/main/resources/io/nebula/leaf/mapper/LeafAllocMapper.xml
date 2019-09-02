@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.nebula.leaf.mapper.LeafAllocMapper">
+
+  <update id="updateMaxId" parameterType="java.lang.String">
+    UPDATE leaf_alloc SET max_id = max_id + step WHERE biz_tag = #{value}
+  </update>
+
+  <update id="updateMaxIdByCustomStep" parameterType="com.sankuai.inf.leaf.segment.model.LeafAlloc">
+    UPDATE leaf_alloc SET max_id = max_id + #{step} WHERE biz_tag = #{key}
+  </update>
+
+  <insert id="insertLeafAlloc" parameterType="java.lang.String">
+    INSERT INTO leaf_alloc (biz_tag,max_id,step) VALUES (#{key},1,1000)
+  </insert>
+
+</mapper>

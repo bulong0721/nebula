@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/nebula-archetypes/nebula-archetype-mybatis-plus/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/nebula-archetypes/nebula-archetype-tk-mapper/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
-      <profile name="Annotation profile for rhea" enabled="true">
+      <profile name="Annotation profile for nebula" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -24,122 +28,110 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
-        <module name="rhea-boot-sofa" />
-        <module name="rhea-generator" />
-        <module name="rhea-kernel-common" />
-        <module name="rhea-kernel-core" />
-        <module name="rhea-kernel-dao" />
-        <module name="rhea-kernel-service" />
-        <module name="rhea-kernel-web" />
-        <module name="rhea-order-api" />
-        <module name="rhea-order-service" />
-        <module name="rhea-order-skeleton" />
-        <module name="rhea-order-web" />
-        <module name="rhea-starter-cache" />
-        <module name="rhea-starter-elasticjob" />
-        <module name="rhea-starter-excel" />
-        <module name="rhea-starter-framework" />
-        <module name="rhea-starter-mq" />
-        <module name="rhea-starter-sharding" />
-        <module name="rhea-starter-socketio" />
-        <module name="rhea-starter-sofa" />
-        <module name="rhea-starter-springcloud" />
-        <module name="rhea-starter-stream" />
-        <module name="rhea-starter-swagger" />
-        <module name="rhea-starter-tracing" />
-        <module name="rhea-upms-api" />
-        <module name="rhea-upms-service" />
-        <module name="rhea-upms-skeleton" />
-        <module name="rhea-upms-web" />
+        <module name="nebula-archetype-mybatis-plus" />
+        <module name="nebula-archetype-tk-mapper" />
+        <module name="nebula-kernel-common" />
+        <module name="nebula-kernel-core" />
+        <module name="nebula-kernel-dao" />
+        <module name="nebula-kernel-service" />
+        <module name="nebula-kernel-web" />
+        <module name="nebula-plugin-mybatis-plus" />
+        <module name="nebula-plugin-tk-mapper" />
+        <module name="nebula-server-admin" />
+        <module name="nebula-server-leaf" />
+        <module name="nebula-server-websocket" />
+        <module name="nebula-starter-aliyun" />
+        <module name="nebula-starter-easyexcel" />
+        <module name="nebula-starter-elasticjob" />
+        <module name="nebula-starter-elasticsearch" />
+        <module name="nebula-starter-feign" />
+        <module name="nebula-starter-framework" />
+        <module name="nebula-starter-leaf" />
+        <module name="nebula-starter-pac4j" />
+        <module name="nebula-starter-redisson" />
+        <module name="nebula-starter-rocketmq" />
+        <module name="nebula-starter-seata" />
+        <module name="nebula-starter-sentinel" />
+        <module name="nebula-starter-session" />
+        <module name="nebula-starter-sharding" />
+        <module name="nebula-starter-shiro" />
+        <module name="nebula-starter-swagger" />
+        <module name="nebula-starter-websocket" />
+        <module name="nebula-starter-wechat" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="rhea" target="1.8" />
-      <module name="rhea-base" target="1.8" />
-      <module name="rhea-base-core" target="1.8" />
-      <module name="rhea-base-messaging" target="1.8" />
-      <module name="rhea-base-service" target="1.8" />
-      <module name="rhea-base-sharding-jdbc" target="1.8" />
-      <module name="rhea-base-web" target="1.8" />
-      <module name="rhea-boot" target="1.8" />
-      <module name="rhea-boot-configuration" target="1.8" />
-      <module name="rhea-boot-framework" target="1.8" />
-      <module name="rhea-boot-messaging" target="1.8" />
-      <module name="rhea-boot-remoting" target="1.8" />
-      <module name="rhea-boot-rpc-framework" target="1.8" />
-      <module name="rhea-boot-schedule" target="1.8" />
-      <module name="rhea-boot-sharding-jdbc" target="1.8" />
-      <module name="rhea-boot-sofa" target="1.8" />
-      <module name="rhea-dependencies" target="1.8" />
-      <module name="rhea-generator" target="1.8" />
-      <module name="rhea-kernel" target="1.8" />
-      <module name="rhea-kernel-common" target="1.8" />
-      <module name="rhea-kernel-core" target="1.8" />
-      <module name="rhea-kernel-dao" target="1.8" />
-      <module name="rhea-kernel-service" target="1.8" />
-      <module name="rhea-kernel-web" target="1.8" />
-      <module name="rhea-order" target="1.8" />
-      <module name="rhea-order-api" target="1.8" />
-      <module name="rhea-order-service" target="1.8" />
-      <module name="rhea-order-skeleton" target="1.8" />
-      <module name="rhea-order-web" target="1.8" />
-      <module name="rhea-plugin" target="1.8" />
-      <module name="rhea-server" target="1.8" />
-      <module name="rhea-starter" target="1.8" />
-      <module name="rhea-starter-cache" target="1.8" />
-      <module name="rhea-starter-elasticjob" target="1.8" />
-      <module name="rhea-starter-excel" target="1.8" />
-      <module name="rhea-starter-framework" target="1.8" />
-      <module name="rhea-starter-mq" target="1.8" />
-      <module name="rhea-starter-sharding" target="1.8" />
-      <module name="rhea-starter-socketio" target="1.8" />
-      <module name="rhea-starter-sofa" target="1.8" />
-      <module name="rhea-starter-springcloud" target="1.8" />
-      <module name="rhea-starter-stream" target="1.8" />
-      <module name="rhea-starter-swagger" target="1.8" />
-      <module name="rhea-starter-tracing" target="1.8" />
-      <module name="rhea-ui" target="1.8" />
-      <module name="rhea-upms" target="1.8" />
-      <module name="rhea-upms-api" target="1.8" />
-      <module name="rhea-upms-service" target="1.8" />
-      <module name="rhea-upms-skeleton" target="1.8" />
-      <module name="rhea-upms-web" target="1.8" />
+      <module name="nebula" target="1.8" />
+      <module name="nebula-archetype-mybatis-plus" target="1.8" />
+      <module name="nebula-archetype-tk-mapper" target="1.8" />
+      <module name="nebula-archetypes" target="1.8" />
+      <module name="nebula-dependencies" target="1.8" />
+      <module name="nebula-kernel" target="1.8" />
+      <module name="nebula-kernel-common" target="1.8" />
+      <module name="nebula-kernel-core" target="1.8" />
+      <module name="nebula-kernel-dao" target="1.8" />
+      <module name="nebula-kernel-service" target="1.8" />
+      <module name="nebula-kernel-web" target="1.8" />
+      <module name="nebula-plugin" target="1.8" />
+      <module name="nebula-plugin-mybatis-plus" target="1.8" />
+      <module name="nebula-plugin-tk-mapper" target="1.8" />
+      <module name="nebula-server" target="1.8" />
+      <module name="nebula-server-admin" target="1.8" />
+      <module name="nebula-server-leaf" target="1.8" />
+      <module name="nebula-server-websocket" target="1.8" />
+      <module name="nebula-starter" target="1.8" />
+      <module name="nebula-starter-aliyun" target="1.8" />
+      <module name="nebula-starter-easyexcel" target="1.8" />
+      <module name="nebula-starter-elasticjob" target="1.8" />
+      <module name="nebula-starter-elasticsearch" target="1.8" />
+      <module name="nebula-starter-feign" target="1.8" />
+      <module name="nebula-starter-framework" target="1.8" />
+      <module name="nebula-starter-leaf" target="1.8" />
+      <module name="nebula-starter-pac4j" target="1.8" />
+      <module name="nebula-starter-redisson" target="1.8" />
+      <module name="nebula-starter-rocketmq" target="1.8" />
+      <module name="nebula-starter-seata" target="1.8" />
+      <module name="nebula-starter-sentinel" target="1.8" />
+      <module name="nebula-starter-session" target="1.8" />
+      <module name="nebula-starter-sharding" target="1.8" />
+      <module name="nebula-starter-shiro" target="1.8" />
+      <module name="nebula-starter-swagger" target="1.8" />
+      <module name="nebula-starter-websocket" target="1.8" />
+      <module name="nebula-starter-wechat" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="rhea-base-core" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-base-service" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-base-web" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-boot-configuration" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-boot-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-boot-messaging" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-boot-remoting" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-boot-rpc-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-boot-schedule" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-boot-sharding-jdbc" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-dependencies" options="" />
-      <module name="rhea-generator" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-kernel" options="" />
-      <module name="rhea-kernel-common" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-kernel-core" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-kernel-dao" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-kernel-service" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-kernel-web" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-server" options="" />
-      <module name="rhea-starter" options="" />
-      <module name="rhea-starter-cache" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-elasticjob" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-excel" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-mq" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-sharding" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-socketio" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-sofa" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-springcloud" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-stream" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-swagger" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
-      <module name="rhea-starter-tracing" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-archetype-mybatis-plus" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-archetype-tk-mapper" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-kernel-common" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-kernel-core" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-kernel-dao" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-kernel-service" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-kernel-web" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-plugin-mybatis-plus" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-plugin-tk-mapper" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-server-admin" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-server-leaf" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-server-websocket" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-aliyun" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-easyexcel" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-elasticjob" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-elasticsearch" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-feign" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-leaf" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-pac4j" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-redisson" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-rocketmq" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-seata" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-sentinel" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-session" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-sharding" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-shiro" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-swagger" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-websocket" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-wechat" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
     </option>
   </component>
 </project>

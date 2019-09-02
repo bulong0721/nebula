@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.nebula</groupId>
+        <artifactId>nebula</artifactId>
+        <version>0.7.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>nebula-starter</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>nebula-starter-framework</module>
+        <module>nebula-starter-seata</module>
+        <module>nebula-starter-elasticjob</module>
+        <module>nebula-starter-swagger</module>
+        <module>nebula-starter-wechat</module>
+        <module>nebula-starter-feign</module>
+        <module>nebula-starter-sharding</module>
+        <module>nebula-starter-leaf</module>
+        <module>nebula-starter-rocketmq</module>
+        <module>nebula-starter-session</module>
+        <module>nebula-starter-redisson</module>
+        <module>nebula-starter-shiro</module>
+        <module>nebula-starter-sentinel</module>
+        <module>nebula-starter-pac4j</module>
+        <module>nebula-starter-elasticsearch</module>
+        <module>nebula-starter-websocket</module>
+        <module>nebula-starter-aliyun</module>
+        <module>nebula-starter-easyexcel</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.nebula</groupId>
+                <artifactId>nebula-dependencies</artifactId>
+                <version>${nebula.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+        </dependency>
+    </dependencies>
+</project>

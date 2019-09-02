@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: nebula-server-leaf
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    consul:
+      discovery:
+        tags: ver=1.0, provider=nebula
+server:
+  port: 3333
+nebula:
+  gateway:
+    repository: default
+  leaf:
+    snowflake:
+      zk-address: ${nebula.elastic.zkServer}
+      port: 5656

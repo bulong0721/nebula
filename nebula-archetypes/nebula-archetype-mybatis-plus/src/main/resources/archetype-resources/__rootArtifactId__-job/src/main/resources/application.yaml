@@ -1,0 +1,15 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: ${artifactId}
+  cloud:
+    consul:
+      discovery:
+        tags: ver=1.0, provider=nebula
+server:
+  port: 9060
+
+nebula:
+  elastic:
+    namespace: ${artifactId}

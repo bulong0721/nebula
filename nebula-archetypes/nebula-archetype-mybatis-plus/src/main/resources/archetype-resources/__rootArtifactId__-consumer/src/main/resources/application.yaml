@@ -1,0 +1,16 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: ${artifactId}
+  cloud:
+    consul:
+      discovery:
+        tags: ver=1.0, provider=nebula
+server:
+  port: 9070
+
+nebula:
+  messaging:
+    producer-group: ${artifactId}
+    consumer-group: ${artifactId}

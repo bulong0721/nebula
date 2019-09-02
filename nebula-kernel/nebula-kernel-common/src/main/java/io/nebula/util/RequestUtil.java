@@ -1,0 +1,107 @@
+package io.nebula.util;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2018/10/15
+ */
+public class RequestUtil {
+    /**
+     * 移除request指定参数
+     *
+     * @param request
+     * @param paramName
+     * @return
+     */
+    public static String removeParam(HttpServletRequest request, String paramName) {
+        String queryString = "";
+        Enumeration keys = request.getParameterNames();
+        while (keys.hasMoreElements()) {
+            String key = (String) keys.nextElement();
+            if (key.equals(paramName)) {
+                continue;
+            }
+            if ("".equals(queryString)) {
+                queryString = key + "=" + request.getParameter(key);
+            } else {
+                queryString += "&" + key + "=" + request.getParameter(key);
+            }
+        }
+        return queryString;
+    }
+
+    /**
+     * 获取请求basePath
+     *
+     * @param request
+     * @return
+     */
+    public static String getBasePath(HttpServletRequest request) {
+        StringBuffer basePath = new StringBuffer();
+        String scheme = request.getScheme();
+        String domain = request.getServerName();
+        int port = request.getServerPort();
+        basePath.append(scheme);
+        basePath.append("://");
+        basePath.append(domain);
+        if ("http".equalsIgnoreCase(scheme) && 80 != port) {
+            basePath.append(":").append(String.valueOf(port));
+        } else if ("https".equalsIgnoreCase(scheme) && port != 443) {
+            basePath.append(":").append(String.valueOf(port));
+        }
+        return basePath.toString();
+    }
+
+    /**
+     * 获取ip工具类，除了getRemoteAddr，其他ip均可伪造
+     *
+     * @param request
+     * @return
+     */
+    public static String getIpAddr(HttpServletRequest request) {
+        // 网宿cdn的真实ip
+        String ip = request.getHeader("Cdn-Src-Ip");
+        if (ip == null || ip.length() == 0 || " unknown".equalsIgnoreCase(ip)) {
+            // 蓝讯cdn的真实ip
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (ip == null || ip.length() == 0 || " unknown".equalsIgnoreCase(ip)) {
+            // 获取代理ip
+            ip = request.getHeader("X-Forwarded-For");
+        }
+        if (ip == null || ip.length() == 0 || " unknown".equalsIgnoreCase(ip)) {
+            // 获取代理ip
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            // 获取代理ip
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            // 获取真实ip
+            ip = request.getRemoteAddr();
+        }
+        return ip;
+    }
+
+    /**
+     * 请求中参数转Map<String, String>,for支付宝异步回调,平时建议直接使用request.getParameterMap(),返回Map<String, String[]>
+     *
+     * @param request
+     * @return
+     */
+    public static Map<String, String> getParameterMap(HttpServletRequest request) {
+        Map<String, String> result = new HashMap<>();
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = (String) parameterNames.nextElement();
+            result.put(parameterName, request.getParameter(parameterName));
+        }
+        return result;
+    }
+}

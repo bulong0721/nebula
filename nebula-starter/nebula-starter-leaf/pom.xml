@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.nebula</groupId>
+        <artifactId>nebula-starter</artifactId>
+        <version>0.7.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>io.nebula</groupId>
+    <artifactId>nebula-starter-leaf</artifactId>
+    <version>0.7.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.nebula</groupId>
+            <artifactId>nebula-starter-feign</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-security-rsa</artifactId>
+                    <groupId>org.springframework.security</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.ws.rs</groupId>
+                    <artifactId>jsr311-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.nebula</groupId>
+            <artifactId>nebula-kernel-core</artifactId>
+        </dependency>
+    </dependencies>
+</project>

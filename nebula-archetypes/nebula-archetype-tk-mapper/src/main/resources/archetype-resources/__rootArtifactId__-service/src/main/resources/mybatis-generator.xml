@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <plugin type="LombokPlugin">
+            <property name="ToString" value="true"/>
+        </plugin>
+
+        <plugin type="SerializablePlugin">
+            <property name="suppressJavaInterface" value="true" />
+        </plugin>
+
+        <plugin type="nebulaMapperPlugin">
+            <property name="mappers" value="TkBaseMapper"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="forceAnnotation" value="true"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="io.nebula.apus"/>
+            <property name="targetProject" value="src/main/java"/>
+            <property name="targetPackage" value="${context}.service"/>
+            <property name="templatePath" value="template/Service.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}Service.java"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="io.nebula.apus"/>
+            <property name="targetProject" value="src/main/java"/>
+            <property name="targetPackage" value="${context}.service.impl"/>
+            <property name="templatePath" value="template/ServiceImpl.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}ServiceImpl.java"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="context" value="io.nebula.apus"/>
+            <property name="targetProject" value="../apus-ms/src/main/java"/>
+            <property name="targetPackage" value="${context}.controller"/>
+            <property name="templatePath" value="template/Controller.ftl"/>
+            <property name="fileName" value="${tableClass.shortClassName}Controller.java"/>
+        </plugin>
+
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.200.111.135:3306/apus1?characterEncoding=utf8"
+                        userId="root"
+                        password="nebula"/>
+
+        <!-- model生成 -->
+        <javaModelGenerator targetPackage="io.nebula.apus.model" targetProject="src/main/java">
+            <property name="rootClass" value="BaseEntity"/>
+        </javaModelGenerator>
+
+        <!-- MapperXML生成 -->
+        <sqlMapGenerator targetPackage="io.nebula.apus.mapper" targetProject="src/main/resources"/>
+
+        <!-- Mapper接口生成 -->
+        <javaClientGenerator targetPackage="io.nebula.apus.mapper" targetProject="src/main/java" type="XMLMAPPER">
+
+        </javaClientGenerator>
+
+        <!--<table tableName="account" domainObjectName="Account"/>-->
+    </context>
+</generatorConfiguration>

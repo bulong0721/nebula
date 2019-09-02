@@ -1,0 +1,38 @@
+author: xubulong
+open: false
+outputDir: src/main/java
+serviceName: "%sService"
+controllerModule: examples-ms
+
+dataSource:
+  url: jdbc:mysql://10.200.111.135:3306/nebula?characterEncoding=utf8&useSSL=true
+  driverName: com.mysql.jdbc.Driver
+  username: root
+  password: nebula
+  dbType: MYSQL
+
+packageInfo:
+  moduleName: examples
+  entity: model
+  parent: io.nebula
+
+strategy:
+  naming: underline_to_camel
+  columnNaming: underline_to_camel
+  entityLombokModel: true
+  restControllerStyle: true
+  superEntityClass: io.nebula.kernel.entity.BaseEntity
+  superMapperClass: io.nebula.kernel.mapper.MpBaseMapper
+  superServiceClass: io.nebula.kernel.service.MybatisPlusService
+  superServiceImplClass: io.nebula.kernel.service.impl.MybatisPlusServiceImpl
+  superControllerClass: io.nebula.web.controller.BaseController
+  superEntityColumns:
+    - created
+    - created_by
+    - updated
+    - updated_by
+  include:
+    - employee
+
+template:
+  xml: null
