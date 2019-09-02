@@ -42,19 +42,6 @@ public class VenusFeign {
     @Autowired
     private ConfigurableBeanFactory beanFactory;
 
-    @Bean
-    public VenusRequestInterceptor feignRequestInterceptor() {
-        return new VenusRequestInterceptor();
-    }
-
-    @Bean
-    public VenusSpringMvcContract feignSpringMvcContract(@Autowired(required = false) List<AnnotatedParameterProcessor> parameterProcessors,  ConversionService conversionService) {
-        if (null == parameterProcessors) {
-            parameterProcessors = new ArrayList<>();
-        }
-        return new VenusSpringMvcContract(parameterProcessors, conversionService);
-    }
-
     public static MethodParameter interfaceMethodParameter(MethodParameter parameter, Class annotationType) {
         if (!parameter.hasParameterAnnotation(annotationType)) {
             for (Class<?> itf : parameter.getDeclaringClass().getInterfaces()) {
@@ -70,6 +57,19 @@ public class VenusFeign {
             }
         }
         return parameter;
+    }
+
+    @Bean
+    public VenusRequestInterceptor feignRequestInterceptor() {
+        return new VenusRequestInterceptor();
+    }
+
+    @Bean
+    public VenusSpringMvcContract feignSpringMvcContract(@Autowired(required = false) List<AnnotatedParameterProcessor> parameterProcessors, ConversionService conversionService) {
+        if (null == parameterProcessors) {
+            parameterProcessors = new ArrayList<>();
+        }
+        return new VenusSpringMvcContract(parameterProcessors, conversionService);
     }
 
     @PostConstruct

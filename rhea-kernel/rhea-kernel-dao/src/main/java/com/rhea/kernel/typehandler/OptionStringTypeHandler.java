@@ -18,7 +18,7 @@ public class OptionStringTypeHandler<E extends Enum<E> & Option<String>> extends
 
     @Override
     protected E convert2Option(EnumSet<E> enumSet, String value) {
-        for(E elem : enumSet) {
+        for (E elem : enumSet) {
             if (elem.getValue().equalsIgnoreCase(value)) {
                 return elem;
             }

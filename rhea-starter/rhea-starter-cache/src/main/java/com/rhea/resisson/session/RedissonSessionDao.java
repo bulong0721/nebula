@@ -87,9 +87,9 @@ public class RedissonSessionDao extends AbstractSessionDAO {
     /**
      * <p>Get key name by session id for binding a RMap to store basic informations of the session.</p>
      * <p>
-     *  In redis cluster, key hash tags ensure that the binding RMaps of a session are allocated in the
-     *  same hash slot.
-     *  <a href="https://redis.io/topics/cluster-spec#keys-hash-tags">https://redis.io/topics/cluster-spec#keys-hash-tags</a>
+     * In redis cluster, key hash tags ensure that the binding RMaps of a session are allocated in the
+     * same hash slot.
+     * <a href="https://redis.io/topics/cluster-spec#keys-hash-tags">https://redis.io/topics/cluster-spec#keys-hash-tags</a>
      * </p>
      *
      * @param sessionId the session id
@@ -104,9 +104,9 @@ public class RedissonSessionDao extends AbstractSessionDAO {
     /**
      * <p>Get key name by session id for binding a RMap to store attributes of the session.</p>
      * <p>
-     *  In redis cluster, key hash tags ensure that the binding RMaps of a session are allocated in the
-     *  same hash slot.
-     *  <a href="https://redis.io/topics/cluster-spec#keys-hash-tags">https://redis.io/topics/cluster-spec#keys-hash-tags</a>
+     * In redis cluster, key hash tags ensure that the binding RMaps of a session are allocated in the
+     * same hash slot.
+     * <a href="https://redis.io/topics/cluster-spec#keys-hash-tags">https://redis.io/topics/cluster-spec#keys-hash-tags</a>
      * </p>
      *
      * @param sessionId the session id

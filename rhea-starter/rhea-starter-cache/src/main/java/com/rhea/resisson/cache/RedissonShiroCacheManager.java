@@ -35,10 +35,11 @@ public class RedissonShiroCacheManager implements CacheManager, Initializable {
     private Map<String, CacheConfig> configMap = new ConcurrentHashMap<>();
     private ConcurrentMap<String, Cache> instanceMap = new ConcurrentHashMap<>();
 
-    public RedissonShiroCacheManager(){}
+    public RedissonShiroCacheManager() {
+    }
 
-    public RedissonShiroCacheManager(RedissonClient redisson){
-        this(redisson, (String)null, null);
+    public RedissonShiroCacheManager(RedissonClient redisson) {
+        this(redisson, (String) null, null);
     }
 
     public RedissonShiroCacheManager(RedissonClient redisson, Map<String, ? extends CacheConfig> config) {
@@ -97,7 +98,7 @@ public class RedissonShiroCacheManager implements CacheManager, Initializable {
 
     protected <K> RMap<K, Object> getMap(String name, CacheConfig config) {
         if (this.codec != null) {
-            return  this.redisson.getMap(name, this.codec);
+            return this.redisson.getMap(name, this.codec);
         }
         return this.redisson.getMap(name);
     }

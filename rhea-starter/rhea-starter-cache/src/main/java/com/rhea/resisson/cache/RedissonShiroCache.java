@@ -21,17 +21,12 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class RedissonShiroCache<K, V> implements Cache<K, V> {
 
-    private RMapCache<K, Object> mapCache;
-
     private final RMap<K, Object> map;
-
-    private CacheConfig config;
-
     private final boolean allowNullValues;
-
     private final AtomicLong hits = new AtomicLong();
-
     private final AtomicLong misses = new AtomicLong();
+    private RMapCache<K, Object> mapCache;
+    private CacheConfig config;
 
     public RedissonShiroCache(RMapCache<K, Object> mapCache, CacheConfig config, boolean allowNullValues) {
         this.mapCache = mapCache;
@@ -138,7 +133,7 @@ public class RedissonShiroCache<K, V> implements Cache<K, V> {
         return fromStoreValue(previous);
     }
 
-    public long fastRemove(K ... keys) {
+    public long fastRemove(K... keys) {
         return this.map.fastRemove(keys);
     }
 
@@ -181,25 +176,29 @@ public class RedissonShiroCache<K, V> implements Cache<K, V> {
         return userValue;
     }
 
-    /** The number of get requests that were satisfied by the cache.
+    /**
+     * The number of get requests that were satisfied by the cache.
+     *
      * @return the number of hits
      */
-    long getCacheHits(){
+    long getCacheHits() {
         return this.hits.get();
     }
 
-    /** A miss is a get request that is not satisfied.
+    /**
+     * A miss is a get request that is not satisfied.
+     *
      * @return the number of misses
      */
-    long getCacheMisses(){
+    long getCacheMisses() {
         return this.misses.get();
     }
 
-    private void addCacheHit(){
+    private void addCacheHit() {
         this.hits.incrementAndGet();
     }
 
-    private void addCacheMiss(){
+    private void addCacheMiss() {
         this.misses.incrementAndGet();
     }
 

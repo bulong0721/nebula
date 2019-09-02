@@ -15,6 +15,15 @@ import static feign.Util.checkState;
  */
 public abstract class VenusBaseContract extends Contract.BaseContract {
 
+    private static void checkMapString(String name, Class<?> type, Type genericType) {
+        checkState(Map.class.isAssignableFrom(type),
+                "%s parameter must be a Map: %s", name, type);
+        Type[] parameterTypes = ((ParameterizedType) genericType).getActualTypeArguments();
+        Class<?> keyClass = (Class<?>) parameterTypes[0];
+        checkState(String.class.equals(keyClass),
+                "%s key must be a String: %s", name, keyClass.getSimpleName());
+    }
+
     @Override
     protected MethodMetadata parseAndValidateMetadata(Class<?> targetType, Method method) {
         MethodMetadata data = new MethodMetadata();
@@ -63,14 +72,5 @@ public abstract class VenusBaseContract extends Contract.BaseContract {
         }
 
         return data;
-    }
-
-    private static void checkMapString(String name, Class<?> type, Type genericType) {
-        checkState(Map.class.isAssignableFrom(type),
-                "%s parameter must be a Map: %s", name, type);
-        Type[] parameterTypes = ((ParameterizedType) genericType).getActualTypeArguments();
-        Class<?> keyClass = (Class<?>) parameterTypes[0];
-        checkState(String.class.equals(keyClass),
-                "%s key must be a String: %s", name, keyClass.getSimpleName());
     }
 }

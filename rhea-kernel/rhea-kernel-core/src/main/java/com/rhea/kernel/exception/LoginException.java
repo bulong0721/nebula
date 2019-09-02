@@ -6,13 +6,6 @@ package com.rhea.kernel.exception;
  */
 public class LoginException extends Exception {
 
-    public enum Reason {
-        NotFound,
-        Locked,
-        Expired,
-        BadCredential
-    }
-
     private final Reason reason;
 
     public LoginException(Reason reason) {
@@ -27,5 +20,12 @@ public class LoginException extends Exception {
 
     public Reason getReason() {
         return reason;
+    }
+
+    public enum Reason {
+        NotFound,
+        Locked,
+        Expired,
+        BadCredential
     }
 }

@@ -29,27 +29,6 @@ public class RSAUtil {
     private static final Map<String, Object> keyMap = new HashMap<String, Object>();
 
     /**
-     * 初始化密钥对
-     *
-     * @return Map 甲方密钥的Map
-     */
-    public void initKey() throws Exception {
-        //实例化密钥生成器
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(KEY_ALGORITHM);
-        //初始化密钥生成器
-        keyPairGenerator.initialize(KEY_SIZE);
-        //生成密钥对
-        KeyPair keyPair = keyPairGenerator.generateKeyPair();
-        //甲方公钥
-        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-        //甲方私钥
-        RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
-        //将密钥存储在map中
-        keyMap.put(PUBLIC_KEY, publicKey);
-        keyMap.put(PRIVATE_KEY, privateKey);
-    }
-
-    /**
      * 私钥加密
      *
      * @param data 待加密数据
@@ -151,6 +130,27 @@ public class RSAUtil {
     public static byte[] getPublicKey() throws Exception {
         Key key = (Key) keyMap.get(PUBLIC_KEY);
         return key.getEncoded();
+    }
+
+    /**
+     * 初始化密钥对
+     *
+     * @return Map 甲方密钥的Map
+     */
+    public void initKey() throws Exception {
+        //实例化密钥生成器
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(KEY_ALGORITHM);
+        //初始化密钥生成器
+        keyPairGenerator.initialize(KEY_SIZE);
+        //生成密钥对
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+        //甲方公钥
+        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+        //甲方私钥
+        RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+        //将密钥存储在map中
+        keyMap.put(PUBLIC_KEY, publicKey);
+        keyMap.put(PRIVATE_KEY, privateKey);
     }
 
 }

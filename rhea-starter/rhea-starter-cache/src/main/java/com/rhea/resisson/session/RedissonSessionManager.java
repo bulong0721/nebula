@@ -19,10 +19,8 @@ import java.io.Serializable;
 public class RedissonSessionManager extends AbstractNativeSessionManager {
 
     private static final Logger logger = LoggerFactory.getLogger(RedissonSessionManager.class);
-
-    private SessionFactory sessionFactory;
-
     protected SessionDAO sessionDAO;
+    private SessionFactory sessionFactory;
 
     public RedissonSessionManager() {
         this.sessionFactory = new SimpleSessionFactory();
@@ -75,7 +73,6 @@ public class RedissonSessionManager extends AbstractNativeSessionManager {
     protected Serializable getSessionId(SessionKey sessionKey) {
         return sessionKey.getSessionId();
     }
-
 
 
     public SessionFactory getSessionFactory() {

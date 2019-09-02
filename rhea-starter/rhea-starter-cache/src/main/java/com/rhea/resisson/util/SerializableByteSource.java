@@ -17,11 +17,11 @@ public class SerializableByteSource extends SimpleByteSource implements Serializ
     /**
      * <p>Add default constructor to support more serialization solution such as jackson.</p>
      */
-    public SerializableByteSource(){
+    public SerializableByteSource() {
         super((byte[]) null);
     }
 
-    public SerializableByteSource(byte[] bytes){
+    public SerializableByteSource(byte[] bytes) {
         super(bytes);
     }
 

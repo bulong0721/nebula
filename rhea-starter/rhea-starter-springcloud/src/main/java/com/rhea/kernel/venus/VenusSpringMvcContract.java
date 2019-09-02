@@ -42,29 +42,23 @@ import static org.springframework.core.annotation.AnnotatedElementUtils.findMerg
  */
 public class VenusSpringMvcContract extends VenusBaseContract implements ResourceLoaderAware {
     private static final Logger LOGGER = LoggerFactory.getLogger(VenusSpringMvcContract.class);
-
+    private static final String ACCEPT = "Accept";
+    private static final String CONTENT_TYPE = "Content-Type";
+    private static final ParameterNameDiscoverer PARAMETER_NAME_DISCOVERER = new DefaultParameterNameDiscoverer();
+    private final Map<Class<? extends Annotation>, AnnotatedParameterProcessor> annotatedArgumentProcessors;
+    private final Map<String, Method> processedMethods = new HashMap<>();
+    private final ConversionService conversionService;
+    private final Param.Expander expander;
     private Pattern pattern = Pattern.compile("(\\{[^}]+\\})");
     /**
      * MethodMetadata RequestTemplate 都是final无法优雅扩展 只能通过反射强行修改
      */
     private Field requestTemplateUrl = ReflectionUtils.findField(RequestTemplate.class, "url");
+    private ResourceLoader resourceLoader = new DefaultResourceLoader();
 
     {
         requestTemplateUrl.setAccessible(true);
     }
-
-    private static final String ACCEPT = "Accept";
-
-    private static final String CONTENT_TYPE = "Content-Type";
-
-    private static final ParameterNameDiscoverer PARAMETER_NAME_DISCOVERER = new DefaultParameterNameDiscoverer();
-
-    private final Map<Class<? extends Annotation>, AnnotatedParameterProcessor> annotatedArgumentProcessors;
-    private final Map<String, Method> processedMethods = new HashMap<>();
-
-    private final ConversionService conversionService;
-    private final Param.Expander expander;
-    private ResourceLoader resourceLoader = new DefaultResourceLoader();
 
     public VenusSpringMvcContract() {
         this(Collections.emptyList());
@@ -364,6 +358,21 @@ public class VenusSpringMvcContract extends VenusBaseContract implements Resourc
                 && parameterTypes != null && parameterTypes.length > parameterIndex;
     }
 
+    public static class ConvertingExpander implements Param.Expander {
+
+        private final ConversionService conversionService;
+
+        public ConvertingExpander(ConversionService conversionService) {
+            this.conversionService = conversionService;
+        }
+
+        @Override
+        public String expand(Object value) {
+            return this.conversionService.convert(value, String.class);
+        }
+
+    }
+
     private class SimpleAnnotatedParameterContext
             implements AnnotatedParameterProcessor.AnnotatedParameterContext {
 
@@ -407,20 +416,5 @@ public class VenusSpringMvcContract extends VenusBaseContract implements Resourc
             ((Collection) possiblyNull).add(String.format("{%s}", name));
             return (Collection) possiblyNull;
         }
-    }
-
-    public static class ConvertingExpander implements Param.Expander {
-
-        private final ConversionService conversionService;
-
-        public ConvertingExpander(ConversionService conversionService) {
-            this.conversionService = conversionService;
-        }
-
-        @Override
-        public String expand(Object value) {
-            return this.conversionService.convert(value, String.class);
-        }
-
     }
 }

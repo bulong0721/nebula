@@ -42,7 +42,7 @@ public abstract class OptionTypeHandler<E extends Enum<E> & Option<T>, T> extend
      */
     protected E convert2Option(EnumSet<E> enumSet, T value) {
         for (E elem : enumSet) {
-            if (value ==  elem.getValue()) {
+            if (value == elem.getValue()) {
                 return elem;
             }
         }

@@ -123,7 +123,7 @@ public class RedissonWebSessionManager extends RedissonSessionManager implements
         if (!(servletRequest instanceof HttpServletRequest)) {
             return null;
         }
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
         String uri = request.getRequestURI();
         if (uri == null) {
             return null;
@@ -147,7 +147,7 @@ public class RedissonWebSessionManager extends RedissonSessionManager implements
         final String token = paramName + "=";
 
         //uri now contains only the path segment params
-        uri = uri.substring(index+1);
+        uri = uri.substring(index + 1);
 
         //we only care about the last JSESSIONID param:
         index = uri.lastIndexOf(token);
@@ -160,7 +160,7 @@ public class RedissonWebSessionManager extends RedissonSessionManager implements
 
         //strip off any remaining segment params:
         index = uri.indexOf(';');
-        if(index >= 0) {
+        if (index >= 0) {
             uri = uri.substring(0, index);
         }
 
@@ -274,7 +274,6 @@ public class RedissonWebSessionManager extends RedissonSessionManager implements
     public boolean isServletContainerSessions() {
         return false;
     }
-
 
 
     public Cookie getSessionIdCookie() {

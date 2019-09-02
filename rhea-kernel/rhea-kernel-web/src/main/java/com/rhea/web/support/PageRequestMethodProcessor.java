@@ -38,7 +38,7 @@ public class PageRequestMethodProcessor extends AbstractMessageConverterMethodAr
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         InputMessageWrapper inputMessage = new InputMessageWrapper(createInputMessage(webRequest));
         PageRequest<Object> page = (PageRequest<Object>) readWithMessageConverters(inputMessage, parameter, PageRequest.class);
-        Type innerType = ((ParameterizedType)parameter.getGenericParameterType()).getActualTypeArguments()[0];
+        Type innerType = ((ParameterizedType) parameter.getGenericParameterType()).getActualTypeArguments()[0];
         inputMessage.reset();
         Object data = readWithMessageConverters(inputMessage, parameter, innerType);
         page.setData(data);
