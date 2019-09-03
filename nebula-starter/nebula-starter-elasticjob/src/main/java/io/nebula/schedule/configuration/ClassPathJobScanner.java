@@ -52,11 +52,7 @@ public class ClassPathJobScanner extends ClassPathBeanDefinitionScanner {
 
     @Override
     protected boolean checkCandidate(String beanName, BeanDefinition beanDefinition) {
-        if (super.checkCandidate(beanName, beanDefinition)) {
-            return true;
-        } else {
-            return false;
-        }
+        return super.checkCandidate(beanName, beanDefinition);
     }
 
     @Override

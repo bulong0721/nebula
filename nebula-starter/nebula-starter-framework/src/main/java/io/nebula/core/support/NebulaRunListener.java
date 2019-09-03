@@ -20,8 +20,8 @@ import java.util.Date;
  */
 @Slf4j
 public class NebulaRunListener implements SpringApplicationRunListener {
-    private final SpringApplication application;
-    private final String[] args;
+    protected final SpringApplication application;
+    protected final String[] args;
 
     public NebulaRunListener(SpringApplication application, String[] args) {
         this.application = application;

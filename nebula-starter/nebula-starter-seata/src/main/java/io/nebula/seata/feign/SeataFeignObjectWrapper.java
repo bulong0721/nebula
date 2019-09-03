@@ -17,11 +17,11 @@ public class SeataFeignObjectWrapper {
     private CachingSpringLoadBalancerFactory cachingSpringLoadBalancerFactory;
     private SpringClientFactory springClientFactory;
 
-    SeataFeignObjectWrapper(BeanFactory beanFactory) {
+    protected SeataFeignObjectWrapper(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
 
-    Object wrap(Object bean) {
+    public Object wrap(Object bean) {
         if (bean instanceof Client && !(bean instanceof SeataFeignClient)) {
             if (bean instanceof LoadBalancerFeignClient) {
                 LoadBalancerFeignClient client = ((LoadBalancerFeignClient) bean);
@@ -33,7 +33,7 @@ public class SeataFeignObjectWrapper {
         return bean;
     }
 
-    CachingSpringLoadBalancerFactory factory() {
+    public CachingSpringLoadBalancerFactory factory() {
         if (this.cachingSpringLoadBalancerFactory == null) {
             this.cachingSpringLoadBalancerFactory = this.beanFactory
                     .getBean(CachingSpringLoadBalancerFactory.class);
@@ -41,7 +41,7 @@ public class SeataFeignObjectWrapper {
         return this.cachingSpringLoadBalancerFactory;
     }
 
-    SpringClientFactory clientFactory() {
+    public SpringClientFactory clientFactory() {
         if (this.springClientFactory == null) {
             this.springClientFactory = this.beanFactory
                     .getBean(SpringClientFactory.class);

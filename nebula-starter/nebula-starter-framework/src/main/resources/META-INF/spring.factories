@@ -1,2 +1,2 @@
 org.springframework.boot.SpringApplicationRunListener=\
-  io.nebula.core.support.nebulaRunListener
+  io.nebula.core.support.NebulaRunListener

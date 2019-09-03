@@ -20,7 +20,7 @@ public class SpringWebMvcConfigurer implements WebMvcConfigurer {
     }
 
     @Bean
-    RequestLogAspect requestLogAspect() {
+    public RequestLogAspect requestLogAspect() {
         final int order = Byte.MAX_VALUE;
         return new RequestLogAspect(order);
     }

@@ -17,13 +17,13 @@ import javax.validation.ValidatorFactory;
 public class FluentConfiguration {
 
     @Bean
-    Validator hibernateValidator() {
+    public Validator hibernateValidator() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         return factory.getValidator();
     }
 
     @Bean
-    SpringApplicationContextRegistry contextRegistry(ApplicationContext applicationContext) {
+    public SpringApplicationContextRegistry contextRegistry(ApplicationContext applicationContext) {
         SpringApplicationContextRegistry s = new SpringApplicationContextRegistry();
         s.setApplicationContext(applicationContext);
         return s;

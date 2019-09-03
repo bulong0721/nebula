@@ -16,7 +16,7 @@ import java.util.Date;
  */
 @Data
 public class ServiceContext {
-    static final ThreadLocal<ServiceContext> REQUEST_CONTEXT = ThreadLocalManager.createThreadLocal(ServiceContext.class);
+    private static final ThreadLocal<ServiceContext> REQUEST_CONTEXT = ThreadLocalManager.createThreadLocal(ServiceContext.class);
     /**
      * 当前用户
      */

@@ -44,14 +44,14 @@ public class GenerateMain {
         generator.execute();
     }
 
-    static ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+    private static ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
 
-    static GenerateConfig getConfig(String path) throws IOException {
+    private static GenerateConfig getConfig(String path) throws IOException {
         File yamlFile = new File(path);
         return objectMapper.readValue(yamlFile, GenerateConfig.class);
     }
 
-    static void defaultTemplate(GenerateConfig config) {
+    private static void defaultTemplate(GenerateConfig config) {
         TemplateConfig template = config.getTemplate();
         template.setEntity("/template/entity.java");
         template.setMapper("/template/mapper.java");
@@ -61,7 +61,7 @@ public class GenerateMain {
         template.setController("/template/controller.java");
     }
 
-    static void changeControllerDir(AutoGenerator generator, GenerateConfig config) {
+    private static void changeControllerDir(AutoGenerator generator, GenerateConfig config) {
         ConfigBuilder builder = generator.getConfig();
         Map<String, String> pathInfo = builder.getPathInfo();
         String path = pathInfo.get(ConstVal.CONTROLLER_PATH);
@@ -75,7 +75,7 @@ public class GenerateMain {
         }
     }
 
-    static boolean isNotEmpty(String text) {
+    private static boolean isNotEmpty(String text) {
         return text != null && !text.isEmpty();
     }
 

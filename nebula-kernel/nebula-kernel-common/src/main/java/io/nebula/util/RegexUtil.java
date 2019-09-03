@@ -29,20 +29,19 @@ import java.util.regex.Pattern;
  * @since 1.0.0
  */
 public final class RegexUtil {
-
-    static final Pattern PATTERN_MAIL = Pattern.compile("\\w+@\\w+\\.[a-z]+(\\.[a-z]+)?");
-    static final Pattern PATTERN_ID_CARD = Pattern.compile("[1-9]\\d{13,16}[a-zA-Z0-9]{1}");
-    static final Pattern PATTERN_MOBILE = Pattern.compile("^1[3456789]\\d{9}$");
-    static final Pattern PATTERN_PHONE = Pattern.compile("(\\+\\d+)?(\\d{3,4}\\-?)?\\d{7,8}$");
-    static final Pattern PATTERN_DIGIT = Pattern.compile("\\-?[1-9]\\d+");
-    static final Pattern PATTERN_DECIMALS = Pattern.compile("\\-?[1-9]\\d+(\\.\\d+)?");
-    static final Pattern PATTERN_BLANKSPACE = Pattern.compile("\\s+");
-    static final Pattern PATTERN_CHINESE = Pattern.compile("[\u4E00-\u9FA5]+$");
-    static final Pattern PATTERN_BIRTHDAY = Pattern.compile("[1-9]{4}([-./])\\d{1,2}\\1\\d{1,2}");
-    static final Pattern PATTERN_URL = Pattern.compile("(https?://(w{3}\\.)?)?\\w+\\.\\w+(\\.[a-zA-Z]+)*(:\\d{1,5})?(/\\w*)*(\\??(.+=.*)?(&.+=.*)?)?");
-    static final Pattern PATTERN_DOMAIN = Pattern.compile("(?<=http://|\\.)[^.]*?\\.(com|cn|net|org|biz|info|cc|tv)", Pattern.CASE_INSENSITIVE);
-    static final Pattern PATTERN_POSTCODE = Pattern.compile("[1-9]\\d{5}");
-    static final Pattern PATTERN_IPADDRESS = Pattern.compile("[1-9](\\d{1,2})?\\.(0|([1-9](\\d{1,2})?))\\.(0|([1-9](\\d{1,2})?))\\.(0|([1-9](\\d{1,2})?))");
+    private static final Pattern PATTERN_MAIL = Pattern.compile("\\w+@\\w+\\.[a-z]+(\\.[a-z]+)?");
+    private static final Pattern PATTERN_ID_CARD = Pattern.compile("[1-9]\\d{13,16}[a-zA-Z0-9]{1}");
+    private static final Pattern PATTERN_MOBILE = Pattern.compile("^1[3456789]\\d{9}$");
+    private static final Pattern PATTERN_PHONE = Pattern.compile("(\\+\\d+)?(\\d{3,4}\\-?)?\\d{7,8}$");
+    private static final Pattern PATTERN_DIGIT = Pattern.compile("\\-?[1-9]\\d+");
+    private static final Pattern PATTERN_DECIMALS = Pattern.compile("\\-?[1-9]\\d+(\\.\\d+)?");
+    private static final Pattern PATTERN_BLANKSPACE = Pattern.compile("\\s+");
+    private static final Pattern PATTERN_CHINESE = Pattern.compile("[\u4E00-\u9FA5]+$");
+    private static final Pattern PATTERN_BIRTHDAY = Pattern.compile("[1-9]{4}([-./])\\d{1,2}\\1\\d{1,2}");
+    private static final Pattern PATTERN_URL = Pattern.compile("(https?://(w{3}\\.)?)?\\w+\\.\\w+(\\.[a-zA-Z]+)*(:\\d{1,5})?(/\\w*)*(\\??(.+=.*)?(&.+=.*)?)?");
+    private static final Pattern PATTERN_DOMAIN = Pattern.compile("(?<=http://|\\.)[^.]*?\\.(com|cn|net|org|biz|info|cc|tv)", Pattern.CASE_INSENSITIVE);
+    private static final Pattern PATTERN_POSTCODE = Pattern.compile("[1-9]\\d{5}");
+    private static final Pattern PATTERN_IPADDRESS = Pattern.compile("[1-9](\\d{1,2})?\\.(0|([1-9](\\d{1,2})?))\\.(0|([1-9](\\d{1,2})?))\\.(0|([1-9](\\d{1,2})?))");
 
     private RegexUtil() {
     }
@@ -167,7 +166,6 @@ public final class RegexUtil {
      */
     public static String getDomain(final String url) {
         // 获取完整的域名
-        // Pattern p=Pattern.compile("[^//]*?\\.(com|cn|net|org|biz|info|cc|tv)", Pattern.CASE_INSENSITIVE);
         Matcher matcher = PATTERN_DOMAIN.matcher(url);
         matcher.find();
         return matcher.group();
