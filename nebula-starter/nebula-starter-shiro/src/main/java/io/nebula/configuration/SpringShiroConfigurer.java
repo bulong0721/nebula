@@ -8,7 +8,6 @@ import io.nebula.session.RedissonSessionDao;
 import io.nebula.session.RedissonWebSessionManager;
 import io.nebula.util.StringUtil;
 import io.nebula.web.shiro.*;
-import io.nebula.web.shiro.*;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.session.mgt.SessionManager;

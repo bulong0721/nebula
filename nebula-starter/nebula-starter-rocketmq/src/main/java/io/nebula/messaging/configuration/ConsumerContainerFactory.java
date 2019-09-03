@@ -13,19 +13,19 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class ConsumerContainerFactory {
 
-    private final static ConcurrentMap<ConsumerGroup, ConsumerContainer> consumerMap = new ConcurrentHashMap<>();
+    private final static ConcurrentMap<ConsumerGroup, ConsumerContainer> CONSUMER_MAP = new ConcurrentHashMap<>();
 
     public synchronized static ConsumerContainer getContainer(ConsumeConfig config, ObjectMapper objectMapper) {
         ConsumerGroup consumerGroup = config.toConsumeGroup();
-        if (!consumerMap.containsKey(consumerGroup)) {
+        if (!CONSUMER_MAP.containsKey(consumerGroup)) {
             ConsumerContainer container = new ConsumerContainer(consumerGroup, objectMapper);
             container.init(config);
-            consumerMap.put(consumerGroup, container);
+            CONSUMER_MAP.put(consumerGroup, container);
         }
-        return consumerMap.get(consumerGroup);
+        return CONSUMER_MAP.get(consumerGroup);
     }
 
     public static ConcurrentMap<ConsumerGroup, ConsumerContainer> consumerMap() {
-        return consumerMap;
+        return CONSUMER_MAP;
     }
 }

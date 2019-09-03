@@ -14,8 +14,6 @@ public class TimeUtil {
     public static final int SECONDS_IN_DAY = 60 * 60 * 24;
     public static final long MILLIS_IN_DAY = 1000L * SECONDS_IN_DAY;
 
-    public static final SimpleDateFormat HTTP_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
-
     /**
      * Converts local date to Date.
      */
@@ -72,6 +70,7 @@ public class TimeUtil {
      * is lost.
      */
     public static String formatHttpDate(final long millis) {
+        final SimpleDateFormat HTTP_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         final Date date = new Date(millis);
         return HTTP_DATE_FORMAT.format(date);
     }
@@ -84,9 +83,9 @@ public class TimeUtil {
         if (time == null) {
             return -1;
         }
-
+        final SimpleDateFormat HTTP_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         try {
-            return TimeUtil.HTTP_DATE_FORMAT.parse(time).getTime();
+            return HTTP_DATE_FORMAT.parse(time).getTime();
         } catch (ParseException e) {
             return -1;
         }

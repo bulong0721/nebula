@@ -1,8 +1,8 @@
 package io.nebula.kernel.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.nebula.kernel.feign.FeignCodec;
 import feign.Contract;
+import io.nebula.kernel.feign.FeignCodec;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

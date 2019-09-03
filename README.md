@@ -1,5 +1,9 @@
 NEBULA 权威指南
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d8ca110c49549a7886504e8006a5b18)](https://www.codacy.com/app/bulong0721/nebula?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bulong0721/nebula&amp;utm_campaign=Badge_Grade)
+[![Total lines](https://tokei.rs/b1/github/bulong0721/nebula?category=lines)](https://github.com/bulong0721/nebula)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?label=license)](https://github.com/bulong0721/nebula/master/LICENSE)
+
 ### 目录
 
 - [简介](docs/introduction.md)

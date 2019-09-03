@@ -18,16 +18,15 @@ import java.util.List;
  */
 @Configuration
 public class SeataRestTemplateConfiguration {
+    @Autowired(required = false)
+    private Collection<RestTemplate> restTemplates;
+    @Autowired
+    private SeataRestTemplateInterceptor seataRestTemplateInterceptor;
+
     @Bean
     public SeataRestTemplateInterceptor seataRestTemplateInterceptor() {
         return new SeataRestTemplateInterceptor();
     }
-
-    @Autowired(required = false)
-    private Collection<RestTemplate> restTemplates;
-
-    @Autowired
-    private SeataRestTemplateInterceptor seataRestTemplateInterceptor;
 
     @PostConstruct
     public void init() {
