@@ -44,13 +44,6 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>yimidida</id>
-            <url>http://m2.yimidida.com:8089/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-
     <build>
         <pluginManagement>
             <plugins>

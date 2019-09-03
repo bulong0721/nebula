@@ -28,13 +28,6 @@
         <module>nebula-starter</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <id>yimidida</id>
-            <url>http://m2.yimidida.com:8089/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
