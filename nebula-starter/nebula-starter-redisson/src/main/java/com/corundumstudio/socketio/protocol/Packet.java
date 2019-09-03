@@ -17,6 +17,11 @@ package com.corundumstudio.socketio.protocol;
 
 import java.io.Serializable;
 
+/**
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2019/9/3
+ */
 public class Packet implements Serializable {
 
     private static final long serialVersionUID = 4560159536486711426L;

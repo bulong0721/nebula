@@ -9,10 +9,13 @@ import java.util.*;
  * @date 2019/3/21
  */
 public enum NetworkInterfaceManager {
+    /**
+     * 单例
+     */
     INSTANCE;
 
-    private InetAddress m_local;
-    private InetAddress m_localHost;
+    private InetAddress local;
+    private InetAddress localhost;
 
     private NetworkInterfaceManager() {
         this.load();
@@ -21,10 +24,10 @@ public enum NetworkInterfaceManager {
     public InetAddress findValidateIp(List<InetAddress> addresses) {
         InetAddress local = null;
         int maxWeight = -1;
-        Iterator i$ = addresses.iterator();
+        Iterator it = addresses.iterator();
 
-        while (i$.hasNext()) {
-            InetAddress address = (InetAddress) i$.next();
+        while (it.hasNext()) {
+            InetAddress address = (InetAddress) it.next();
             if (address instanceof Inet4Address) {
                 int weight = 0;
                 if (address.isSiteLocalAddress()) {
@@ -54,18 +57,18 @@ public enum NetworkInterfaceManager {
     }
 
     public String getLocalHostAddress() {
-        return this.m_local.getHostAddress();
+        return this.local.getHostAddress();
     }
 
     public String getLocalHostName() {
         try {
-            if (null == this.m_localHost) {
-                this.m_localHost = InetAddress.getLocalHost();
+            if (null == this.localhost) {
+                this.localhost = InetAddress.getLocalHost();
             }
 
-            return this.m_localHost.getHostName();
+            return this.localhost.getHostName();
         } catch (UnknownHostException var2) {
-            return this.m_local.getHostName();
+            return this.local.getHostName();
         }
     }
 
@@ -83,7 +86,7 @@ public enum NetworkInterfaceManager {
         String ip = this.getProperty("host.ip");
         if (ip != null) {
             try {
-                this.m_local = InetAddress.getByName(ip);
+                this.local = InetAddress.getByName(ip);
                 return;
             } catch (Exception var10) {
                 System.err.println(var10);
@@ -97,10 +100,10 @@ public enum NetworkInterfaceManager {
             InetAddress local = null;
 
             try {
-                Iterator i$ = ((List) nis).iterator();
+                Iterator it = ((List) nis).iterator();
 
-                while (i$.hasNext()) {
-                    NetworkInterface ni = (NetworkInterface) i$.next();
+                while (it.hasNext()) {
+                    NetworkInterface ni = (NetworkInterface) it.next();
                     if (ni.isUp() && !ni.isLoopback()) {
                         addresses.addAll(Collections.list(ni.getInetAddresses()));
                     }
@@ -111,13 +114,13 @@ public enum NetworkInterfaceManager {
             }
 
             if (local != null) {
-                this.m_local = local;
+                this.local = local;
                 return;
             }
         } catch (SocketException var9) {
         }
 
-        this.m_local = InetAddress.getLoopbackAddress();
+        this.local = InetAddress.getLoopbackAddress();
     }
 }
 

@@ -1,13 +1,9 @@
 package io.nebula.util;
 
 /**
- * <code>StringBand</code> is a faster alternative to <code>StringBuilder</code>.
- * Instead of adding strings, they are stored in an internal array. Only at the
- * end of concatenation, when <code>toString()</code> is invoked, strings are
- * joined together in a very fast manner.
- * <p>
- * To make <code>StringBand</code> even faster, predict the number of <b>joined</b>
- * strings (and not the final string size)!
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2019/9/3
  */
 public class StringBand {
 
@@ -227,6 +223,8 @@ public class StringBand {
                 return array[0];
             case 2:
                 return array[0] + array[1];
+            default:
+                break;
         }
 
         // join strings

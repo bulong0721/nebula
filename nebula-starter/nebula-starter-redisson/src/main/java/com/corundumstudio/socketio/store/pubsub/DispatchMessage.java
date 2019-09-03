@@ -17,6 +17,11 @@ package com.corundumstudio.socketio.store.pubsub;
 
 import com.corundumstudio.socketio.protocol.Packet;
 
+/**
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2019/9/3
+ */
 public class DispatchMessage extends PubSubMessage {
 
     private static final long serialVersionUID = 6692047718303934349L;

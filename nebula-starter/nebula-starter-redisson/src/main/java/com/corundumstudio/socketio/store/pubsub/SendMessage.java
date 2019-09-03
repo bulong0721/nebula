@@ -19,6 +19,11 @@ import com.corundumstudio.socketio.protocol.Packet;
 
 import java.util.UUID;
 
+/**
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2019/9/3
+ */
 public class SendMessage extends PubSubMessage {
 
     private static final long serialVersionUID = 6692047718303934349L;

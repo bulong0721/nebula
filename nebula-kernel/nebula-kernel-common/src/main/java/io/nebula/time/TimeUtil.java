@@ -70,9 +70,9 @@ public class TimeUtil {
      * is lost.
      */
     public static String formatHttpDate(final long millis) {
-        final SimpleDateFormat HTTP_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+        final SimpleDateFormat httpDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         final Date date = new Date(millis);
-        return HTTP_DATE_FORMAT.format(date);
+        return httpDateFormat.format(date);
     }
 
     /**
@@ -83,9 +83,9 @@ public class TimeUtil {
         if (time == null) {
             return -1;
         }
-        final SimpleDateFormat HTTP_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+        final SimpleDateFormat httpDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         try {
-            return HTTP_DATE_FORMAT.parse(time).getTime();
+            return httpDateFormat.parse(time).getTime();
         } catch (ParseException e) {
             return -1;
         }

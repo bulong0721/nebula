@@ -15,7 +15,11 @@
  */
 package com.corundumstudio.socketio.store.pubsub;
 
-
+/**
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2019/9/3
+ */
 public interface PubSubListener<T> {
 
     void onMessage(T data);

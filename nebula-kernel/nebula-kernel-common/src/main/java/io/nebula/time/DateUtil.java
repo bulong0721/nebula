@@ -324,8 +324,9 @@ public class DateUtil {
                 return "星期六";
             case 1:
                 return "星期日";
+            default:
+                return "未知";
         }
-        return "未知";
     }
 
     /**

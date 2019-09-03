@@ -15,7 +15,11 @@
  */
 package com.corundumstudio.socketio.protocol;
 
-
+/**
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2019/9/3
+ */
 public enum PacketType {
 
     OPEN(0), CLOSE(1), PING(2), PONG(3), MESSAGE(4), UPGRADE(5), NOOP(6),

@@ -65,9 +65,6 @@ public class GenerateMain {
         ConfigBuilder builder = generator.getConfig();
         Map<String, String> pathInfo = builder.getPathInfo();
         String path = pathInfo.get(ConstVal.CONTROLLER_PATH);
-        for (Map.Entry<String, String> entry : pathInfo.entrySet()) {
-//            System.out.println(String.format("key=%s,val=%s", entry.getKey(), entry.getValue()));
-        }
         if (isNotEmpty(path) && isNotEmpty(config.getControllerModule())) {
             String newPath = String.format("../%s/%s", config.getControllerModule(), path);
             pathInfo.put(ConstVal.CONTROLLER_PATH, newPath);

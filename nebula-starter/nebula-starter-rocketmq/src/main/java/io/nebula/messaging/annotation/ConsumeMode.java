@@ -17,6 +17,11 @@
 
 package io.nebula.messaging.annotation;
 
+/**
+ * @author 徐步龙
+ * @version V1.0
+ * @date 2019/9/3
+ */
 public enum ConsumeMode {
     /**
      * Receive asynchronously delivered messages concurrently

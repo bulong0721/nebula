@@ -6,8 +6,20 @@ package io.nebula.schedule.event;
  * @date 2018/12/28
  */
 public enum EventType {
+    /**
+     * 空
+     */
     NONE,
+    /**
+     * Kafka
+     */
     KAFKA,
+    /**
+     * Http
+     */
     HTTP,
+    /**
+     * Database
+     */
     RDB
 }

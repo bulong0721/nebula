@@ -10,11 +10,6 @@ import org.springframework.context.annotation.Bean;
  */
 public abstract class AbstractFeign {
 
-//    @Bean
-//    public ApacheHttpClient client() {
-//        return new ApacheHttpClient();
-//    }
-
     @Bean
     public Request.Options requestOptions() {
         return new Request.Options(2000, 10000);
