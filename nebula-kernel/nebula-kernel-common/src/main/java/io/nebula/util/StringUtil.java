@@ -1021,7 +1021,7 @@ public class StringUtil {
         if (sublen == 0) {
             return startIndex > srclen ? srclen : (startIndex < -1 ? -1 : startIndex);
         }
-        sub = sub.toLowerCase();
+        String lcSub = sub.toLowerCase();
         int total = srclen - sublen;
         if (total < 0) {
             return -1;
@@ -1032,7 +1032,7 @@ public class StringUtil {
         if (endIndex < 0) {
             endIndex = 0;
         }
-        char c = sub.charAt(0);
+        char c = lcSub.charAt(0);
         mainloop:
         for (int i = startIndex; i >= endIndex; i--) {
             if (Character.toLowerCase(src.charAt(i)) != c) {
@@ -1042,7 +1042,7 @@ public class StringUtil {
             int k = i + 1;
             while (j < sublen) {
                 char source = Character.toLowerCase(src.charAt(k));
-                if (sub.charAt(j) != source) {
+                if (lcSub.charAt(j) != source) {
                     continue mainloop;
                 }
                 j++;
@@ -2315,7 +2315,7 @@ public class StringUtil {
     public static String cutToIndexOf(String string, final String substring) {
         int i = string.indexOf(substring);
         if (i != -1) {
-            string = string.substring(0, i);
+            return string.substring(0, i);
         }
         return string;
     }
@@ -2326,7 +2326,7 @@ public class StringUtil {
     public static String cutToIndexOf(String string, final char c) {
         int i = string.indexOf(c);
         if (i != -1) {
-            string = string.substring(0, i);
+            return string.substring(0, i);
         }
         return string;
     }
@@ -2337,7 +2337,7 @@ public class StringUtil {
     public static String cutFromIndexOf(String string, final String substring) {
         int i = string.indexOf(substring);
         if (i != -1) {
-            string = string.substring(i);
+            return string.substring(i);
         }
         return string;
     }
@@ -2348,7 +2348,7 @@ public class StringUtil {
     public static String cutFromIndexOf(String string, final char c) {
         int i = string.indexOf(c);
         if (i != -1) {
-            string = string.substring(i);
+            return string.substring(i);
         }
         return string;
     }
@@ -2358,7 +2358,7 @@ public class StringUtil {
      */
     public static String cutPrefix(String string, final String prefix) {
         if (string.startsWith(prefix)) {
-            string = string.substring(prefix.length());
+            return string.substring(prefix.length());
         }
         return string;
     }
@@ -2368,7 +2368,7 @@ public class StringUtil {
      */
     public static String cutSuffix(String string, final String suffix) {
         if (string.endsWith(suffix)) {
-            string = string.substring(0, string.length() - suffix.length());
+            return string.substring(0, string.length() - suffix.length());
         }
         return string;
     }

@@ -27,10 +27,10 @@ public abstract class MpToolkit {
      * 转换为IPage
      *
      * @param pager
-     * @param <T>
+     * @param <T>l
      * @return
      */
-    public static <T> IPage<T> toPage(Pager pager) {
+    public static <T> Page<T> toPage(Pager pager) {
         return new Page<>(pager.getPageIndex(), pager.getPageSize());
     }
 

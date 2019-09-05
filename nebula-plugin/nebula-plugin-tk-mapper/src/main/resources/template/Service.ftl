@@ -5,10 +5,10 @@ package ${context}.service;
 import ${context}.model.${domain};
 import ${context}.model.${domain}Example;
 
-import TkPageableService;
+import io.nebula.kernel.service.TkPageableService;
 
 /**
-* @author nebulaGenerator
+* @author DoradoGenerator
 * ${domain}Service接口
 * Created by service-generator on ${ctime?date}
 */

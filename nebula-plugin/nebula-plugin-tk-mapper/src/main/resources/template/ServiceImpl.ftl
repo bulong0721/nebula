@@ -2,7 +2,7 @@
 <#assign domain = tableClass.shortClassName>
 package ${context}.service.impl;
 
-import TkMapperServiceImpl;
+import io.nebula.kernel.service.impl.TkMapperServiceImpl;
 import ${context}.model.${domain};
 import ${context}.model.${domain}Example;
 import ${context}.service.${domain}Service;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
-* @author nebulaGenerator
+* @author DoradoGenerator
 * ${domain}ServiceImpl
 * Created by serviceImpl-generator on ${ctime?date}
 */

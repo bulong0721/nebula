@@ -19,6 +19,8 @@ import java.util.Map;
  */
 public class GenerateMain {
 
+    private static ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+
     public static void main(String[] args) throws Exception {
         if (null == args || args.length < 1) {
             throw new Exception("配置文件不能为空");
@@ -43,8 +45,6 @@ public class GenerateMain {
         changeControllerDir(generator, config);
         generator.execute();
     }
-
-    private static ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
 
     private static GenerateConfig getConfig(String path) throws IOException {
         File yamlFile = new File(path);

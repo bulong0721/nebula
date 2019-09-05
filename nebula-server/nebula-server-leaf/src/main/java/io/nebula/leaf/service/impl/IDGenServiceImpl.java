@@ -20,16 +20,18 @@ public class IDGenServiceImpl implements IDGenerateService {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SegmentAllocDao segmentAllocDao;
+
     @Override
-    public Result getSegmentID (String key) {
+    public Result getSegmentID(String key) {
         //如果找不到对应key就重新创建一个
-        boolean check=checkBizTag(key);
-        if(check==false){
+        boolean check = checkBizTag(key);
+        if (check == false) {
             segmentAllocDao.insertLeafAlloc(key);
             segmentIDGen.init();
         }
         return segmentIDGen.get(key);
     }
+
     @Override
     public Object getSnowflakeID(String key) {
         return snowflakeIDGen.get(key);
@@ -37,14 +39,15 @@ public class IDGenServiceImpl implements IDGenerateService {
 
     /**
      * 判断DB里面是否有该biz_tag
+     *
      * @param key
      * @return
      */
-    private boolean checkBizTag(String key){
-        List<LeafAlloc> listLc=segmentIDGen.getAllLeafAllocs();
-        if(listLc.size()>0){
-            for(LeafAlloc lc : listLc){
-                if(key.equals(lc.getKey())){
+    private boolean checkBizTag(String key) {
+        List<LeafAlloc> listLc = segmentIDGen.getAllLeafAllocs();
+        if (listLc.size() > 0) {
+            for (LeafAlloc lc : listLc) {
+                if (key.equals(lc.getKey())) {
                     return true;
                 }
             }

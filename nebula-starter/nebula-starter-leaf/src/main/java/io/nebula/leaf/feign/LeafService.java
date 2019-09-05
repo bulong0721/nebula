@@ -1,8 +1,8 @@
 package io.nebula.leaf.feign;
 
-import io.nebula.kernel.exchange.ResponseEntity;
 import feign.Param;
 import feign.RequestLine;
+import io.nebula.kernel.exchange.ResponseEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**

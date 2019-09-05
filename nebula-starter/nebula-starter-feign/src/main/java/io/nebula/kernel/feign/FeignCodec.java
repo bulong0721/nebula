@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.google.common.io.ByteStreams;
 import feign.FeignException;
+import feign.Request;
 import feign.RequestTemplate;
 import feign.Response;
 import feign.codec.DecodeException;
@@ -44,12 +45,12 @@ public class FeignCodec implements Decoder, Encoder {
     @Override
     public void encode(Object object, Type bodyType, RequestTemplate template) throws EncodeException {
         if (bodyType == String.class) {
-            template.body(object.toString().getBytes(DEFAULT_CHARSET), null);
+            template.body(Request.Body.encoded(object.toString().getBytes(DEFAULT_CHARSET), null));
         } else if (bodyType == byte[].class) {
-            template.body((byte[]) object, null);
+            template.body(Request.Body.encoded((byte[]) object, null));
         } else if (object != null) {
             try {
-                template.body(objectMapper.writeValueAsBytes(object), null);
+                template.body(Request.Body.encoded(objectMapper.writeValueAsBytes(object), null));
             } catch (JsonProcessingException e) {
                 throw new EncodeException("Parse error", e);
             }

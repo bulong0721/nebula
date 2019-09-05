@@ -21,6 +21,17 @@ public class SegmentAllocDao implements IDAllocDao {
         this.mapper = mapper;
     }
 
+    public static LeafAlloc toDto(io.nebula.leaf.model.LeafAlloc entity) {
+        LeafAlloc leafAlloc = new LeafAlloc();
+        if (null != entity) {
+            leafAlloc.setKey(entity.getBizTag());
+            leafAlloc.setMaxId(entity.getMaxId());
+            leafAlloc.setStep(entity.getStep());
+            leafAlloc.setUpdateTime(String.valueOf(entity.getUpdateTime()));
+        }
+        return leafAlloc;
+    }
+
     @Override
     public List<LeafAlloc> getAllLeafAllocs() {
         return Lists.transform(mapper.selectAll(), a -> {
@@ -30,7 +41,7 @@ public class SegmentAllocDao implements IDAllocDao {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-   // @SequenceGenerator()
+    // @SequenceGenerator()
     public LeafAlloc updateMaxIdAndGetLeafAlloc(String s) {
         mapper.updateMaxId(s);
         LeafAllocExample example = new LeafAllocExample();
@@ -53,23 +64,13 @@ public class SegmentAllocDao implements IDAllocDao {
         return Lists.transform(leafAllocs, io.nebula.leaf.model.LeafAlloc::getBizTag);
     }
 
-    public static LeafAlloc toDto(io.nebula.leaf.model.LeafAlloc entity) {
-        LeafAlloc leafAlloc= new LeafAlloc();
-        if (null != entity) {
-            leafAlloc.setKey(entity.getBizTag());
-            leafAlloc.setMaxId(entity.getMaxId());
-            leafAlloc.setStep(entity.getStep());
-            leafAlloc.setUpdateTime(String.valueOf(entity.getUpdateTime()));
-        }
-        return leafAlloc;
-    }
-    public int insertLeafAlloc(String key){
-        io.nebula.leaf.model.LeafAlloc leafAlloc= new io.nebula.leaf.model.LeafAlloc();
+    public int insertLeafAlloc(String key) {
+        io.nebula.leaf.model.LeafAlloc leafAlloc = new io.nebula.leaf.model.LeafAlloc();
         leafAlloc.setBizTag(key);
         leafAlloc.setMaxId(Long.valueOf(1));
         leafAlloc.setStep(1000);
-        int result=0;
-        result= mapper.insert(leafAlloc);
-        return  result ;
+        int result = 0;
+        result = mapper.insert(leafAlloc);
+        return result;
     }
 }

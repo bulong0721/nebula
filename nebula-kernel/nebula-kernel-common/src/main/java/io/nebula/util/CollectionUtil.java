@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  */
 public class CollectionUtil {
 
-    static int INDEX_NOT_FOUND = -1;
+    private static int INDEX_NOT_FOUND = -1;
 
     /**
      * Checks if is empty.

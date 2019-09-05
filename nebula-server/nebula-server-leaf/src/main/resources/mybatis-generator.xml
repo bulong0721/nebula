@@ -12,7 +12,7 @@
         </plugin>
 
         <plugin type="SerializablePlugin">
-            <property name="suppressJavaInterface" value="true" />
+            <property name="suppressJavaInterface" value="true"/>
         </plugin>
 
         <plugin type="nebulaMapperPlugin">
@@ -38,11 +38,11 @@
         </plugin>
 
         <!--<plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">-->
-            <!--<property name="context" value="io.nebula.leaf"/>-->
-            <!--<property name="targetProject" value="src/main/java"/>-->
-            <!--<property name="targetPackage" value="${context}.controller"/>-->
-            <!--<property name="templatePath" value="template/Controller.ftl"/>-->
-            <!--<property name="fileName" value="${tableClass.shortClassName}Controller.java"/>-->
+        <!--<property name="context" value="io.nebula.leaf"/>-->
+        <!--<property name="targetProject" value="src/main/java"/>-->
+        <!--<property name="targetPackage" value="${context}.controller"/>-->
+        <!--<property name="templatePath" value="template/Controller.ftl"/>-->
+        <!--<property name="fileName" value="${tableClass.shortClassName}Controller.java"/>-->
         <!--</plugin>-->
 
         <!-- 数据库连接 -->

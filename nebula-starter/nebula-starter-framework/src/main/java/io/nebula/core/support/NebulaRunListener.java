@@ -64,7 +64,7 @@ public class NebulaRunListener implements SpringApplicationRunListener {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String text = String.format(s, sdf.format(new Date()), exception);
             try {
-                Files.append(text, file, Charsets.UTF_8);
+                Files.asCharSink(file, Charsets.UTF_8).write(text);
             } catch (IOException e) {
             }
         }

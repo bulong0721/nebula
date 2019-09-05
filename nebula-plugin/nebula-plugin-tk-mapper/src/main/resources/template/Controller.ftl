@@ -5,12 +5,12 @@ package ${context}.controller;
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.github.pagehelper.PageInfo;
-import BusinessException;
-import FluentException;
+import io.nebula.kernel.exception.BusinessException;
+import io.nebula.kernel.exception.FluentException;
 import io.nebula.kernel.exchange.*;
 import ${context}.model.${domain};
 import ${context}.model.${domain}Example;
-import BaseController;
+import io.nebula.web.controller.BaseController;
 import ${context}.service.${domain}Service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * @author nebulaGenerator controller
+ * @author DoradoGenerator controller
  * @version V1.0
  * @date ${ctime?date}
  */

@@ -22,7 +22,7 @@ public class LeafConfiguration {
     @Autowired
     private LeafProperties properties;
 
-   @Bean(initMethod = "init")
+    @Bean(initMethod = "init")
     public SnowflakeIDGenImpl snowflakeIDGen() {
         LeafProperties.Snowflake snowflake = properties.getSnowflake();
         String zkAddr = snowflake.getZkAddress();

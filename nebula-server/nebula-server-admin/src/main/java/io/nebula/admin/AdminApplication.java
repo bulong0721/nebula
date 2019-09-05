@@ -1,7 +1,7 @@
 package io.nebula.admin;
 
-import io.nebula.core.annotation.EnableFramework;
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
+import io.nebula.core.annotation.EnableFramework;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;

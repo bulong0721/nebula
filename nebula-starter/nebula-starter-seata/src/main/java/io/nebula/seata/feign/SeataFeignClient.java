@@ -51,7 +51,6 @@ public class SeataFeignClient implements Client {
         seataXid.add(xid);
         headers.put(RootContext.KEY_XID, seataXid);
 
-        return Request.create(request.method(), request.url(), headers, request.body(),
-                request.charset());
+        return Request.create(request.httpMethod(), request.url(), headers, request.requestBody());
     }
 }

@@ -25,16 +25,18 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-public class LeafIDGenController  extends BaseController {
+public class LeafIDGenController extends BaseController {
     @Autowired
     private IDGenServiceImpl iDGenService;
     @Autowired
     private SegmentIDGenImpl segmentIDGen;
+
     @RequestMapping(value = "/segmentDB/get/{key}")
     public ResponseEntity<Long> getSegmentID(@PathVariable("key") String key) {
-        long genId = generate(key,(Result)  iDGenService.getSegmentID(key));
+        long genId = generate(key, (Result) iDGenService.getSegmentID(key));
         return StatusCode.OK.build(genId);
     }
+
     @RequestMapping(value = "/snowflakeZK/get/{key}")
     public ResponseEntity<Long> getSnowflakeID(@PathVariable("key") String key) {
         long genId = generate(key, (Result) iDGenService.getSnowflakeID(key));
@@ -69,6 +71,7 @@ public class LeafIDGenController  extends BaseController {
         List<LeafAlloc> items = segmentIDGen.getAllLeafAllocs();
         return StatusCode.OK.build(items, 0, items.size(), items.size());
     }
+
     private long generate(@PathVariable("key") String key, Result id) {
         Result result;
         if (key == null || key.isEmpty()) {
