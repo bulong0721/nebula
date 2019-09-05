@@ -6,26 +6,22 @@ package io.nebula.kernel.exception;
  */
 public class NebulaException extends RuntimeException {
 
-    /**
-     * @param message
-     */
+    public NebulaException() {
+    }
+
     public NebulaException(String message) {
         super(message);
     }
 
-    /**
-     * @param message
-     * @param cause
-     */
     public NebulaException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    /**
-     * @param cause
-     */
     public NebulaException(Throwable cause) {
         super(cause);
     }
 
+    public NebulaException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
 }

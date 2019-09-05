@@ -14,7 +14,15 @@ public class ProduceException extends RuntimeException {
         super(message);
     }
 
+    public ProduceException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
     public ProduceException(Throwable cause) {
         super(cause);
+    }
+
+    public ProduceException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

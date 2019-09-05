@@ -19,8 +19,8 @@ import java.util.List;
  * @author 徐步龙
  */
 public class JobScannerRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
-    private ResourceLoader resourceLoader;
-    private Environment environment;
+    protected ResourceLoader resourceLoader;
+    protected Environment environment;
 
     @Override
     public void setEnvironment(Environment environment) {

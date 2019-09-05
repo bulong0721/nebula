@@ -261,7 +261,7 @@ public class ProducerTemplate extends AbstractMessageSendingTemplate<String> imp
                 content = this.objectMapper.writeValueAsString(payload);
             } catch (JsonProcessingException var7) {
                 log.error("convert payload to String failed. payload:{}", payload);
-                throw new RuntimeException("convert to payload to String failed.", var7);
+                throw new ProduceException("convert to payload to String failed.", var7);
             }
         }
 

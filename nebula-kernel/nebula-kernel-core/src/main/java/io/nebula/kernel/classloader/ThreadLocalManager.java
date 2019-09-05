@@ -1,5 +1,7 @@
 package io.nebula.kernel.classloader;
 
+import io.nebula.kernel.exception.NebulaException;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -48,9 +50,9 @@ public class ThreadLocalManager {
                 try {
                     return type.newInstance();
                 } catch (InstantiationException e) {
-                    throw new RuntimeException(e);
+                    throw new NebulaException(e);
                 } catch (IllegalAccessException e) {
-                    throw new RuntimeException(e);
+                    throw new NebulaException(e);
                 }
             }
 

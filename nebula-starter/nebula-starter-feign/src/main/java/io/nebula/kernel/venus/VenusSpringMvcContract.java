@@ -56,10 +56,6 @@ public class VenusSpringMvcContract extends VenusBaseContract implements Resourc
     private Field requestTemplateUrl = ReflectionUtils.findField(RequestTemplate.class, "uriTemplate");
     private ResourceLoader resourceLoader = new DefaultResourceLoader();
 
-    {
-        requestTemplateUrl.setAccessible(true);
-    }
-
     public VenusSpringMvcContract() {
         this(Collections.emptyList());
     }
@@ -85,6 +81,7 @@ public class VenusSpringMvcContract extends VenusBaseContract implements Resourc
         this.annotatedArgumentProcessors = toAnnotatedArgumentProcessorMap(processors);
         this.conversionService = conversionService;
         this.expander = new org.springframework.cloud.openfeign.support.SpringMvcContract.ConvertingExpander(conversionService);
+        this.requestTemplateUrl.setAccessible(true);
     }
 
     @Override
@@ -97,16 +94,13 @@ public class VenusSpringMvcContract extends VenusBaseContract implements Resourc
         if (clz.getInterfaces().length == 0) {
             RequestMapping classAnnotation = findMergedAnnotation(clz,
                     RequestMapping.class);
-            if (classAnnotation != null) {
-                // Prepend path from class annotation if specified
-                if (classAnnotation.value().length > 0) {
-                    String pathValue = emptyToNull(classAnnotation.value()[0]);
-                    pathValue = resolve(pathValue);
-                    if (!pathValue.startsWith("/")) {
-                        pathValue = "/" + pathValue;
-                    }
-                    data.template().insert(0, pathValue);
+            if (classAnnotation != null && classAnnotation.value().length > 0) {
+                String pathValue = emptyToNull(classAnnotation.value()[0]);
+                pathValue = resolve(pathValue);
+                if (!pathValue.startsWith("/")) {
+                    pathValue = "/" + pathValue;
                 }
+                data.template().insert(0, pathValue);
             }
         }
     }

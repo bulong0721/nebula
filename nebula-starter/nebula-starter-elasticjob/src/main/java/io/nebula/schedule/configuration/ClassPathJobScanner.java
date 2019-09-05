@@ -78,10 +78,8 @@ public class ClassPathJobScanner extends ClassPathBeanDefinitionScanner {
             }
 
             boolean explicitFactoryUsed = false;
-            if (!explicitFactoryUsed) {
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Enabling autowire by type for MapperFactoryBean with name '" + holder.getBeanName() + "'.");
-                }
+            if (!explicitFactoryUsed && logger.isDebugEnabled()) {
+                logger.debug("Enabling autowire by type for MapperFactoryBean with name '" + holder.getBeanName() + "'.");
             }
 
             AnnotationMetadata metadata = definition.getMetadata();

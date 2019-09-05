@@ -138,7 +138,7 @@ public class ConsumerContainer implements SmartLifecycle {
                     return objectMapper.readValue(str, javaType);
                 } catch (Exception e) {
                     log.error("convert failed. str:{}, msgType:{}", str, messageType);
-                    throw new RuntimeException("cannot convert message to " + messageType, e);
+                    throw new ConsumeException("cannot convert message to " + messageType, e);
                 }
             }
         }

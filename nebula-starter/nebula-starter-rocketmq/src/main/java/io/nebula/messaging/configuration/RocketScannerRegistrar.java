@@ -20,8 +20,8 @@ import java.util.List;
  * @date 2019/1/10
  */
 public class RocketScannerRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
-    private ResourceLoader resourceLoader;
-    private Environment environment;
+    protected ResourceLoader resourceLoader;
+    protected Environment environment;
 
     @Override
     public void setEnvironment(Environment environment) {

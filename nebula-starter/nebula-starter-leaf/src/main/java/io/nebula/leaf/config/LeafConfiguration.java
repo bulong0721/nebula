@@ -1,5 +1,6 @@
 package io.nebula.leaf.config;
 
+import io.nebula.kernel.exception.NebulaException;
 import io.nebula.leaf.feign.LeafService;
 import io.nebula.leaf.genid.AbstractGenId;
 import io.nebula.leaf.genid.LeafDBGenId;
@@ -20,7 +21,7 @@ public class LeafConfiguration {
     @Bean
     public LeafDBGenId leafDBGenId(LeafService client) {
         if (StringUtils.isEmpty(client)) {
-            throw new NullPointerException("LeafDBGenId Service load Fail");
+            throw new NebulaException("LeafDBGenId Service load Fail");
         }
         AbstractGenId.setClient(key, client);
         return new LeafDBGenId();
@@ -29,7 +30,7 @@ public class LeafConfiguration {
     @Bean
     public LeafZKGenId leafZKGenId(LeafService client) {
         if (StringUtils.isEmpty(client)) {
-            throw new NullPointerException("LeafZKGenId Service load Fail");
+            throw new NebulaException("LeafZKGenId Service load Fail");
         }
         AbstractGenId.setClient(key, client);
         return new LeafZKGenId();
