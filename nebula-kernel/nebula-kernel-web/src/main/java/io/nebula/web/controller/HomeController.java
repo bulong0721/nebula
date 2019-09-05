@@ -25,7 +25,7 @@ public class HomeController {
      * @return
      */
     @RequestMapping(value = "/currentUser")
-    ResponseEntity<Object> currentUser() {
+    public ResponseEntity<Object> currentUser() {
         IUser user = ServiceContext.currentUser();
         return StatusCode.OK.build(user.summary());
     }

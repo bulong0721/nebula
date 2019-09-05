@@ -24,7 +24,7 @@ public class SeataFeignClientAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     @Scope("prototype")
-    Feign.Builder feignBuilder(BeanFactory beanFactory) {
+    public Feign.Builder feignBuilder(BeanFactory beanFactory) {
         return SeataFeignBuilder.builder(beanFactory);
     }
 

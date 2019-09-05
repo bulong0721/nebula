@@ -49,7 +49,7 @@ public class ElasticScheduler implements InitializingBean {
 
     }
 
-    LiteJobConfiguration buildJobConfig(JobCoreConfiguration jobConfig) {
+    protected LiteJobConfiguration buildJobConfig(JobCoreConfiguration jobConfig) {
         JobTypeConfiguration typeConfiguration = null;
         String jobClass = elasticJob.getClass().getCanonicalName();
         if (elasticJob instanceof SimpleJob) {
@@ -63,7 +63,7 @@ public class ElasticScheduler implements InitializingBean {
     }
 
 
-    static class SpringJobScheduler extends JobScheduler {
+    public static class SpringJobScheduler extends JobScheduler {
         private final ElasticJob elasticJob;
 
         public SpringJobScheduler(CoordinatorRegistryCenter regCenter, LiteJobConfiguration liteJobConfig, ElasticJob elasticJob, ElasticJobListener... elasticJobListeners) {

@@ -36,6 +36,7 @@ public abstract class BaseEntity implements Serializable {
      * @param created
      */
     public void setCreated(Date created) {
+        // do nothing
     }
 
     /**
@@ -44,6 +45,7 @@ public abstract class BaseEntity implements Serializable {
      * @param createdBy
      */
     public void setCreatedBy(String createdBy) {
+        // do nothing
     }
 
     /**
@@ -52,6 +54,7 @@ public abstract class BaseEntity implements Serializable {
      * @param updated
      */
     public void setUpdated(Date updated) {
+        // do nothing
     }
 
     /**
@@ -60,5 +63,6 @@ public abstract class BaseEntity implements Serializable {
      * @param updatedBy
      */
     public void setUpdatedBy(String updatedBy) {
+        // do nothing
     }
 }

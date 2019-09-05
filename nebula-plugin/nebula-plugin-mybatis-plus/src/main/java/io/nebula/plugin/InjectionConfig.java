@@ -9,6 +9,6 @@ public class InjectionConfig extends com.baomidou.mybatisplus.generator.Injectio
 
     @Override
     public void initMap() {
-
+        // do nothing
     }
 }

@@ -32,6 +32,7 @@ public class CharBufferReader extends Reader {
 
     @Override
     public void close() {
+        // do nothing
     }
 
 }

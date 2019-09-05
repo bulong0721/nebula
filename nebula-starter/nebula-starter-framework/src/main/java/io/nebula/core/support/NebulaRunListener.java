@@ -30,22 +30,27 @@ public class NebulaRunListener implements SpringApplicationRunListener {
 
     @Override
     public void starting() {
+        // do nothing
     }
 
     @Override
     public void environmentPrepared(ConfigurableEnvironment environment) {
+        // do nothing
     }
 
     @Override
     public void contextPrepared(ConfigurableApplicationContext context) {
+        // do nothing
     }
 
     @Override
     public void contextLoaded(ConfigurableApplicationContext context) {
+        // do nothing
     }
 
     @Override
     public void started(ConfigurableApplicationContext context) {
+        // do nothing
     }
 
     @Override

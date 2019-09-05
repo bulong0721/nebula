@@ -50,7 +50,7 @@ public class ConsumerContainer implements SmartLifecycle {
     }
 
     private void checkConsumeConfig(ConsumeConfig consumeConfig) {
-
+        // do nothing
     }
 
     public synchronized void init(ConsumeConfig config) {

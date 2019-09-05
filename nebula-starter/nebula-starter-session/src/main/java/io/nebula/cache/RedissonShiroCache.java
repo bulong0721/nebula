@@ -181,7 +181,7 @@ public class RedissonShiroCache<K, V> implements Cache<K, V> {
      *
      * @return the number of hits
      */
-    long getCacheHits() {
+    public long getCacheHits() {
         return this.hits.get();
     }
 
@@ -190,7 +190,7 @@ public class RedissonShiroCache<K, V> implements Cache<K, V> {
      *
      * @return the number of misses
      */
-    long getCacheMisses() {
+    public long getCacheMisses() {
         return this.misses.get();
     }
 

@@ -27,7 +27,7 @@ public class SecurityController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    ResponseEntity<String> login(String username, String password) {
+    public ResponseEntity<String> login(String username, String password) {
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         SecurityUtils.getSubject().login(token);
         return StatusCode.OK.build(username);
@@ -39,7 +39,7 @@ public class SecurityController {
      * @return
      */
     @RequestMapping(value = "/logout")
-    ResponseEntity<String> logout() {
+    public ResponseEntity<String> logout() {
         SecurityUtils.getSubject().logout();
         return StatusCode.OK.build();
     }
