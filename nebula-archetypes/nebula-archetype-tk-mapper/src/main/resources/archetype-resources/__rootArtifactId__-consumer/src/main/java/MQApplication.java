@@ -1,21 +1,17 @@
 package ${package};
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import ${package}.model.Student;
 import ${package}.producer.StudentProducer;
 import io.nebula.core.annotation.EnableFramework;
-import io.nebula.kernel.batch.BatchFactoryBean;
 import io.nebula.kernel.configuration.OpenFeign;
 import io.nebula.messaging.annotation.EnableMQ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import tk.mybatis.spring.annotation.MapperScan;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -30,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 @EnableMQ(consumeOn = true)
 @EnableDiscoveryClient
 @EnableFeignClients(value = "io.nebula", defaultConfiguration = OpenFeign.class)
-@MapperScan(value = "io.nebula.*.mapper", factoryBean = BatchFactoryBean.class)
 @ComponentScan(value = "io.nebula")
 public class MQApplication {
 

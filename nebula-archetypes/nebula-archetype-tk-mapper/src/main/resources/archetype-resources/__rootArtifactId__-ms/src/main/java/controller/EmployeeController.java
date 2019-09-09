@@ -24,11 +24,6 @@ public class EmployeeController extends BaseController {
     @Autowired
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "/report")
-    public ResponseEntity<String> report() {
-        return StatusCode.OK.build(reportService.queryBusiness());
-    }
-
     @RequestMapping(value = "/query", method = RequestMethod.POST)
     public ResponseEntity<List<Employee>> query() {
         EmployeeExample example = new EmployeeExample();
@@ -40,7 +35,6 @@ public class EmployeeController extends BaseController {
         // 实体校验
         ComplexResult cr = checkAllWithJsr303(employee)
                 .on(employee.getName(), new NotNullValidator("姓名"))
-                .on(employee,new EmployeeValidator())
                 .doValidate()
                 .result(ResultCollectors.toComplex());
         // 验证失败
@@ -55,7 +49,6 @@ public class EmployeeController extends BaseController {
         // 实体校验
         ComplexResult cr = checkAllWithJsr303(employee)
                 .on(employee.getName(), new NotNullValidator("姓名"))
-                .on(employee,new EmployeeValidator())
                 .doValidate()
                 .result(ResultCollectors.toComplex());
         // 验证失败
