@@ -14,5 +14,11 @@
     <artifactId>nebula-starter-elasticsearch</artifactId>
     <version>0.7.0-SNAPSHOT</version>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.nlpcn</groupId>
+            <artifactId>elasticsearch-sql</artifactId>
+            <version>6.8.2.1</version>
+        </dependency>
+    </dependencies>
 </project>

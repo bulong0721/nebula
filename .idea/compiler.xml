@@ -77,7 +77,9 @@
       <module name="nebula-plugin-tk-mapper" target="1.8" />
       <module name="nebula-server" target="1.8" />
       <module name="nebula-server-admin" target="1.8" />
+      <module name="nebula-server-bifrost" target="1.8" />
       <module name="nebula-server-leaf" target="1.8" />
+      <module name="nebula-server-qsql" target="1.8" />
       <module name="nebula-server-websocket" target="1.8" />
       <module name="nebula-starter" target="1.8" />
       <module name="nebula-starter-aliyun" target="1.8" />
@@ -112,7 +114,9 @@
       <module name="nebula-plugin-mybatis-plus" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-plugin-tk-mapper" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-server-admin" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-server-bifrost" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-server-leaf" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-server-qsql" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-server-websocket" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-aliyun" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-easyexcel" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />

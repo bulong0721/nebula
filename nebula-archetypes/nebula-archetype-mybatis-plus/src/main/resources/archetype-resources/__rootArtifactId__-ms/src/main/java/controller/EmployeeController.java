@@ -1,5 +1,6 @@
 package ${package}.controller;
 
+import io.nebula.kernel.exchange.*;
 import lombok.extern.slf4j.Slf4j;
 import ${package}.model.Employee;
 {package}.service.EmployeeService;

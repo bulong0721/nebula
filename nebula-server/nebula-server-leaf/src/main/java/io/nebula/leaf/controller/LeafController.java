@@ -25,7 +25,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-public class LeafIDGenController extends BaseController {
+public class LeafController extends BaseController {
     @Autowired
     private IDGenServiceImpl iDGenService;
     @Autowired
