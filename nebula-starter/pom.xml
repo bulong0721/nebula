@@ -31,7 +31,8 @@
         <module>nebula-starter-elasticsearch</module>
         <module>nebula-starter-websocket</module>
         <module>nebula-starter-aliyun</module>
-        <module>nebula-starter-easyexcel</module>
+        <module>nebula-starter-excel</module>
+        <module>nebula-starter-impexp</module>
     </modules>
 
     <dependencyManagement>

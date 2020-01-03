@@ -28,36 +28,37 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
-        <module name="nebula-archetype-mybatis-plus" />
         <module name="nebula-archetype-tk-mapper" />
-        <module name="nebula-kernel-common" />
-        <module name="nebula-kernel-core" />
-        <module name="nebula-kernel-dao" />
-        <module name="nebula-kernel-service" />
-        <module name="nebula-kernel-web" />
-        <module name="nebula-plugin-mybatis-plus" />
-        <module name="nebula-plugin-tk-mapper" />
-        <module name="nebula-server-admin" />
-        <module name="nebula-server-leaf" />
-        <module name="nebula-server-websocket" />
-        <module name="nebula-starter-aliyun" />
-        <module name="nebula-starter-easyexcel" />
-        <module name="nebula-starter-elasticjob" />
-        <module name="nebula-starter-elasticsearch" />
+        <module name="nebula-starter-swagger" />
         <module name="nebula-starter-feign" />
-        <module name="nebula-starter-framework" />
-        <module name="nebula-starter-leaf" />
+        <module name="nebula-kernel-dao" />
+        <module name="nebula-plugin-mybatis-plus" />
+        <module name="nebula-starter-aliyun" />
         <module name="nebula-starter-pac4j" />
-        <module name="nebula-starter-redisson" />
-        <module name="nebula-starter-rocketmq" />
+        <module name="nebula-starter-leaf" />
+        <module name="nebula-server-leaf" />
+        <module name="nebula-starter-wechat" />
+        <module name="nebula-archetype-mybatis-plus" />
+        <module name="nebula-server-admin" />
+        <module name="nebula-plugin-tk-mapper" />
+        <module name="nebula-starter-elasticsearch" />
+        <module name="nebula-kernel-core" />
+        <module name="nebula-starter-framework" />
+        <module name="nebula-starter-elasticjob" />
+        <module name="nebula-kernel-web" />
+        <module name="nebula-starter-shiro" />
         <module name="nebula-starter-seata" />
+        <module name="nebula-kernel-common" />
+        <module name="nebula-starter-redisson" />
+        <module name="nebula-server-websocket" />
+        <module name="nebula-starter-websocket" />
+        <module name="nebula-kernel-service" />
         <module name="nebula-starter-sentinel" />
         <module name="nebula-starter-session" />
+        <module name="nebula-starter-impexp" />
+        <module name="nebula-starter-rocketmq" />
         <module name="nebula-starter-sharding" />
-        <module name="nebula-starter-shiro" />
-        <module name="nebula-starter-swagger" />
-        <module name="nebula-starter-websocket" />
-        <module name="nebula-starter-wechat" />
+        <module name="nebula-starter-excel" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -86,8 +87,10 @@
       <module name="nebula-starter-easyexcel" target="1.8" />
       <module name="nebula-starter-elasticjob" target="1.8" />
       <module name="nebula-starter-elasticsearch" target="1.8" />
+      <module name="nebula-starter-excel" target="1.8" />
       <module name="nebula-starter-feign" target="1.8" />
       <module name="nebula-starter-framework" target="1.8" />
+      <module name="nebula-starter-impexp" target="1.8" />
       <module name="nebula-starter-leaf" target="1.8" />
       <module name="nebula-starter-pac4j" target="1.8" />
       <module name="nebula-starter-redisson" target="1.8" />
@@ -122,8 +125,10 @@
       <module name="nebula-starter-easyexcel" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-elasticjob" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-elasticsearch" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-excel" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-feign" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-framework" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
+      <module name="nebula-starter-impexp" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-leaf" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-pac4j" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
       <module name="nebula-starter-redisson" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.defaultComponentModel=spring" />
